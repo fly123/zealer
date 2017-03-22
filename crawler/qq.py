@@ -4,6 +4,7 @@ import time
 import json
 
 
+
 def get_current_time():
     return time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
@@ -139,3 +140,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
