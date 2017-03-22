@@ -29,22 +29,19 @@ def get_html(url):
     data = f.read()
     f.close()
 
-    # res =urllib.urlopen("https://v.qq.com/x/cover/vmxj2j1ujjh5sp7/q03829iscd8.html")
-    # data = res.read()
+    res =urllib.urlopen(url)
+    data = res.read()
 
     return data
 
 
-def parse_html(html):
+def parse_html(html, url_id):
     result_dict = {}
     data = html
     #print data
-    title, data = match(data, '<div class="figure_title">', '</div>')
-    print title
-    if title == '':
-        return result_dict
 
-    playCount, data = match(data, 'class="num _video_playnum">', '</span>')
+    # print 'data-id="%s" class="num _video_playnum">' % url_id
+    playCount, data = match(data, 'data-id="%s" class="num _video_playnum">' % url_id, '</span>')
     if playCount == '':
         return result_dict
     print playCount
@@ -52,6 +49,11 @@ def parse_html(html):
         tmp = playCount.replace('万', '')
         playCount  = str(int(float(tmp) * 10000))
     print playCount
+
+    title, data = match(data, "{title: curVideo.title || '", "'}\"")
+    print title
+    if title == '':
+        return result_dict
 
     uploadTime, data = match(data, 'class="tag_item">', '</span>')
     print uploadTime
@@ -78,7 +80,10 @@ def get_data(url):
     result_dict = {}
 
     html = get_html(url)
-    tmp_dict = parse_html(html)
+    url_id = url.split('/')[-1].replace('.html', '')
+    url_id = url_id.encode('utf-8')
+    # print url_id, type(url_id)
+    tmp_dict = parse_html(html, url_id)
     if len(tmp_dict) > 0:
         result_dict['title'] = tmp_dict['title']
         result_dict['link'] = url
@@ -94,8 +99,8 @@ def get_url_list_html():
     data = f.read()
     f.close()
 
-    # res =urllib.urlopen("http://s.video.qq.com/get_playsource?id=vmxj2j1ujjh5sp7&plat=2&type=4&data_type=2&video_type=28&range=1-37&plname=qq&otype=json&num_mod_cnt=20&callback=_jsonp_17_78a4&_t=1490183329265")
-    # data = res.read()
+    res =urllib.urlopen("http://s.video.qq.com/get_playsource?id=vmxj2j1ujjh5sp7&plat=2&type=4&data_type=2&video_type=28&range=1-37&plname=qq&otype=json&num_mod_cnt=20&callback=_jsonp_17_78a4&_t=1490183329265")
+    data = res.read()
 
     return data
 
@@ -125,17 +130,18 @@ def get_url_list():
 def main():
     result_list = []
     #print get_data('https://v.qq.com/x/cover/vmxj2j1ujjh5sp7/q03829iscd8.html')
-    print get_url_list(), len(get_url_list())
+    # print get_url_list(), len(get_url_list())
 
-    # url_list = get_url_list()
-    # print len(url_list)
-    # for url in url_list:
-    #     result_dict = get_data(url)
-    #     result_list.append(result_dict)
-    #     time.sleep(1)
-    #
-    # print result_list, '\n', len(result_list)
-    # return result_list
+    url_list = get_url_list()
+    print len(url_list)
+    for url in url_list:
+        result_dict = get_data(url)
+        result_list.append(result_dict)
+        time.sleep(1)
+        print '-' * 100
+
+    print result_list, '\n', len(result_list)
+    return result_list
 
 
 if __name__ == '__main__':
