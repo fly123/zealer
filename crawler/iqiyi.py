@@ -78,8 +78,9 @@ def get_data(url):
     play_count_dict = get_play_count_dict(play_count_url)
     # print play_count_dict
 
-    result_dict = {}
+
     for info_dict in info_list:
+        result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['url']
         result_dict['uploadTime'] = info_dict['uploadTime']

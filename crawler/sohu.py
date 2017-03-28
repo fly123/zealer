@@ -52,8 +52,8 @@ def get_data(url):
     play_count_url = 'http://vstat.v.blog.sohu.com/dostat.do?method=getVideoPlayCount&v=%s&n=bvid' % id_list_str
     play_count_dict = get_play_count_dict(play_count_url)
 
-    result_dict = {}
     for info_dict in info_list:
+        result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['url']
         result_dict['uploadTime'] = common.timestamp_to_str(info_dict['uploadTime'] / 1000)[ : len('2017-01-05')]

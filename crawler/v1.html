@@ -1,0 +1,1369 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<title>视频管理-第一视频网</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<link type="image/x-icon" href="http://user.v1.cn:80/images/favicon.ico" rel="icon" />
+<link href="http://user.v1.cn:80/images/favicon.ico" rel="shortcut icon" />
+<meta name="description" content="VOD One V1圈 第一视频" />
+<link rel="stylesheet" type="text/css" href="http://static.v1.cn/css/pgc/page/normal.css?v=21">
+<script type="text/javascript" src="http://user.v1.cn:80/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://user.v1.cn:80/js/jquery.query-object.js"></script>
+<script type="text/javascript" src="http://static.v1.cn/v1quan/js/slides.min.jquery.js"></script>
+<script type="text/javascript" src="http://static.v1.cn/v1quan/js/commonDom.js"></script>
+<script src="http://static.v1.cn/js/sea.js"></script>
+<script src="http://pic.v1.cn/cms/v1_static/js/ie6check.js"></script>
+    <script>
+        $(function(){
+            seajs.use('http://static.v1.cn/js/pgc/common/page/cptPgcHeader');
+        })
+    </script>
+</head>
+<body>
+
+
+
+<script type="text/javascript" src="http://pic.v1.cn/cms/v1_static(new)/common/js/passport.js"></script>
+<!--outWrapper--Start-->
+<div class="outWrapper">
+
+<div class="header header_s">
+    <div class="wrap">
+        <div class="headerBox">
+            <h1>
+                <a href="http://www.v1.cn" class="logo">第一视频 www.v1.cn</a>
+            </h1>
+            <div class="nav">
+                <ul class="navList">
+                    <li  id="v1chanel">
+                        <a class="navList_item navList_item00" href="javascript:;">频道</a>
+                        <!--频道列表弹窗 start-->
+                        <div class="chanel_list" id="chanel_list" style="display: none">
+                            <h3 class="cha_tl">
+                                <a href="http://www.v1.cn">热门视频</a>
+                            </h3>
+                            <span class="v1_tl">第一视频推荐</span>
+                            <ul class="cha_ul">
+                                <li class="cha01">
+                                    <a href="http://www.v1.cn/index201505/today_hot.shtml">今日头条</a>
+                                </li>
+                                <li class="cha02">
+                                    <a href="http://www.v1.cn/index201505/V1make.shtml">V1出品</a>
+                                </li>
+                                <li class="cha03">
+                                    <a href="http://news.v1.cn/">新闻</a>
+                                    <a href="http://mil.v1.cn/">军事</a>
+                                </li>
+                                <li class="cha04">
+                                    <a href="http://ent.v1.cn/">娱乐</a>
+                                </li>
+                                <li class="cha05">
+                                    <a href="http://fun.v1.cn/">搞笑</a>
+                                </li>
+                                <li class="cha06">
+                                    <a href="http://sports.v1.cn/">体育</a>
+                                </li>
+                                <li class="cha07">
+                                    <a href="http://music.v1.cn/">音乐</a>
+                                    <a href="http://www.v1.cn/wdy/">微电影</a>
+                                </li>
+                                <li class="cha08">
+                                    <a href="http://finance.v1.cn/">财经</a>
+                                    <a href="http://tech.v1.cn/">科技</a>
+                                </li>
+                                <li class="cha09">
+                                    <a href="http://topic.v1.cn/">专题</a>
+                                </li>
+                                <li class="cha10">
+                                    <a href="http://gongyi.v1.cn/">公益</a>
+                                </li>
+                                <li class="cha11">
+                                    <a href="http://dy.v1.cn/">电影</a>
+                                    <a href="http://dsj.v1.cn/">电视剧</a>
+                                </li>
+                                <li class="cha12">
+                                    <!--<a href="http://www.v1bo.com/?qd=NAV">秀场</a>
+                                    <a href="http://www.v1pin.com/">购物</a>-->
+                                    <a href="http://g.v1.cn/">游戏</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--频道列表弹窗 end-->
+                    </li>
+                    <li>
+                        <a class="navList_item" href="http://g.v1.cn/" target="_blank">游戏</a>
+                    </li>
+                    <!--<li>
+                        <a class="navList_item" href="http://www.v1bo.com/?qd=NAV" target="_blank">秀场</a>
+                    </li>
+                    <li>
+                        <a class="navList_item" href="http://www.v1pin.com/" target="_blank">购物</a>
+                    </li>-->
+                </ul>
+            </div>
+            <div class="tool_new fr" id="tool_new" style="display: none">
+                <ul class="toolNew_list">
+                    <li id="news">
+                        <i class="red" style="display: none"></i>
+                        <a href="javascript:;" class="tool_inf"></a>
+                        <div id="news_list" class="up_list" style="display:none">
+                            <i class="top_ic"></i>
+                            <ul>
+                                <li id="sys_inf">
+                                    <a href="/message/mymessage.jhtml">系统消息</a>
+                                    <span class="new_nums" style="display: none">0</span></li>
+                                <li id="per_inf">
+                                    <a href="/letter/index.jhtml">私信</a>
+                                    <span class="new_nums"  style="display: none">0</span></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="tool_time">
+                        <a href="javascript:;" class="tool_time"></a>
+                        <div class="time_pop"  id="myHis_nl" style="display:none;">
+                            <i class="top_ic"></i>
+                            <ul class="time_tab clearfix">
+                                <li class="active">我看过的</li>
+                                <li class="last">我的订阅</li>
+                            </ul>
+                            <div class="time_no">
+                                <p class="time_tle">登录后才可以查看</p>
+                                <a class="btn_add" href="http://passport.v1.cn/login/tologin.do"  id="loginHref" node-type="toLogin">立即登录</a>
+                            </div>
+                        </div>
+                        <div class="time_pop" id="time_box" style="display: none;">
+                            <i class="top_ic"></i>
+                            <ul class="time_tab clearfix">
+                                <li class="active">我看过的</li>
+                                <li class="last">我的订阅</li>
+                            </ul>
+                            <div class="articles">
+                                <div class="articles_tabCon">
+                                    <ul class="article clearfix" id="mySeeHistory">
+                                    </ul>
+                                    <div class="art_zone">
+                                        <a class="fr" href="/watchRecord/index.jhtml">查看全部</a>
+                                    </div>
+                                </div>
+                                <div  class="articles_tabCon"  style="display: none;">
+                                    <ul class="article clearfix" id="mySubVideo">
+                                    </ul>
+                                    <div class="art_zone">
+                                        <a class="fr" href="/focus/myfocus.jhtml">查看全部</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="toolBar">
+                <ul class="toolBar_list">
+                <li> <a class="toolBar_vr" href="http://up2.v1.cn/v1_vr_upload_web/uploadInfo" target="_blank">VR上传</a> </li>
+                    <li id="up_load">
+                        <span class="toolBar_up" href="http://up.v1.cn/v1_upload_service/upload/index.jhtml" target="_blank">上传</span>
+                        <div id="up_list" class="up_list" style="display: none;">
+                            <i class="top_ic"></i>
+                            <ul class="handle_drops">
+                                <li>
+                                    <a href="http://up.v1.cn/v1_upload_service/upload/index.jhtml">上传视频</a>
+                                </li>
+                                <li>
+                                    <a href="/uservideo/index.jhtml">视频管理</a>
+                                </li>
+                                <li style="display: none">
+                                    <a href="/pgc/pathHome.jhtml">分成计划</a>
+                                    <i class="red"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="toolBar_app" href="http://apps.v1.cn/" target="_blank">APP下载</a>
+
+                    </li>
+                    <!--未登录状态li start-->
+                    <li id="toLogin">
+                        <p class="toolBar_user" style="display: block;">
+                            <a class="toolBar_login" href="javascript:;" id="gologin" node-type="toLogin">登录</a>
+                            <i class="toolBar_line"></i>
+                            <a class="toolBar_register" href="javascript:;" id="goreg">注册</a>
+                        </p>
+                    </li>
+                    <!--未登录状态li end-->
+
+                    <!--登录状态li start-->
+                    <li id="person" style="display: none">
+                    <span class="toolBar_u" href="" target="_blank">
+                    <p class="toolBar_u_img">
+                        <img id="showuface" width="28" height="28" src="" alt="">
+                    </p>
+                    <p class="toolBar_u_txt"  id="showuname">
+                    </p>
+                    </span>
+                        <!--弹窗 start-->
+                        <div id="per_pop" class="per_pop" style="display:none">
+                            <i class="top_ic"></i>
+                            <div class="per_top clearfix">
+                                <a class="per_pic" href="http://passport.v1.cn/edit/userinfo/gouserface.do" id="per_pic">
+                                    <img  id="showuface2" width="50" height="50" src="" alt=""/>
+                                </a>
+                                <div class="per_con">
+                                    <h4 class="per_h4">
+                                        <a href="http://user.v1.cn/user/index.jhtml" id="showuname2"></a>
+                                        <i class="v" id="myAtc"></i></h4>
+                                    <p class="per_p">昵称：<i id="userNickName"></i></p>
+                                    <p class="per_p">
+                                        订阅数：
+                                        <a href="http://user.v1.cn/focus/myfocus.jhtml" id="mySubNum"></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <ul class="handl_list">
+                                <li class="hand_it hand_it01">
+                                    <a href="http://user.v1.cn/user/index.jhtml">我的主页</a>
+                                </li>
+                                <li class="hand_it hand_it02">
+                                    <a href="http://user.v1.cn/uservideo/index.jhtml">我的视频</a>
+                                </li>
+                                <li class="hand_it hand_it03">
+                                    <a href="http://user.v1.cn/album/index.jhtml">我的专辑</a>
+                                </li>
+                                <li class="hand_it hand_it04">
+                                    <a href="http://user.v1.cn/focus/myfocus.jhtml">我的订阅</a>
+                                </li>
+                                <li class="hand_it hand_it05">
+                                    <a href="http://user.v1.cn/collection/index.jhtml">我的收藏</a>
+                                </li>
+                                <li class="hand_it hand_it06">
+                                    <a href="http://user.v1.cn/watchRecord/index.jhtml">观看记录</a>
+                                </li>
+                                <li class="hand_it hand_it07">
+                                    <a target="_blank" href="http://user.v1.cn/pgc/myAtc.jhtml">我的认证</a>
+                                </li>
+                                <!--<li class="hand_it hand_it08"><a href="/account/myRewardIncomeDetail/index.jhtml">我的收益</a></li>
+                                    <li class="hand_it hand_it09"><a href="/account/myAdIncomeDetail/index.jhtml">广告分成</a></li>-->
+                                <li class="hand_it hand_it08">
+                                    <a href="http://user.v1.cn/account/myRewardIncomeDetail/index.jhtml">我的收益</a>
+                                </li>
+                                <li class="hand_it hand_it09">
+                                    <a href="javascript:;">广告分成</a>
+                                </li>
+                            </ul>
+                            <div class="exit">
+                                <a href="http://passport.v1.cn/edit/userinfo/gousercenter.do" id="settingCenter" class="settingCenter fl">账号设置中心</a>
+                                <a href="javascript:;" id="logout" class="logoutA fr">退出</a>
+                            </div>
+                        </div>
+                        <!--弹窗 end-->
+                    </li>
+                    <!--登录状态li end-->
+                </ul>
+            </div>
+            <!--搜索 search start-->
+            <div class="search">
+                <div class="searchBox">
+                    <input id="searchWordNew" class="searchInp" type="text" value="请输入关键字" onfocus="if (value =='请输入关键字'){value =''}" onblur="if (value ==''){value='请输入关键字'}" />
+                    <a id="searchButNew" class="searchBtn" href="javascript:;">搜索</a>
+                </div>
+            </div>
+            <!--搜索 search end-->
+        </div>
+    </div>
+</div>
+
+	    <div class="main_b">
+            <div class="myHome_Box">
+
+
+
+
+
+
+    <div class="leftSlide">
+        <div class="msgMod">
+            <div class="msgMod_box">
+                <p class="msgMod_img">
+
+
+                	  <img width="80" height="80" src="http://p01.v1.cn/group2/M00/10/62/ChQB0FeIYyeAL5kdAAANUCuagAw079.png" alt="">
+
+                </p>
+
+                <p class="msgMod_name">
+                    18576713084
+                    <!--女士
+                    <i class="msgMod_female"></i>-->
+                    <!--男士
+                    <i class="msgMod_male"></i>-->
+                </p>
+                <p class="msgMod_msg"><i class="v1">V1认证</i>昵称: <span class="nick_name" id="nick_name">ZEALER</span><input class="nick_txt" id="nickname" type="text" style="display: none;"/>
+                <a id="sure" class="btn_sub" href="javascript:;" style="display: none;">保存</a><a id="nosure" class="btn_sub" href="javascript:;" style="display: none;">取消</a><a id="edit" class="edit" href="javascript:;"></a></p>
+                <ul class="msgMod_list">
+                    <li>
+                        <a class="SM_list_item" href="http://user.v1.cn:80/uservideo/index.jhtml" target="_blank">340</a>
+                        <p class="SM_list_itemB">视频</p>
+                    </li>
+                    <li>
+                        <a class="SM_list_item" href="http://user.v1.cn:80/album/index.jhtml" target="_blank">0</a>
+                        <p class="SM_list_itemB">专辑</p>
+                    </li>
+                    <li>
+                        <a class="SM_list_item" href="http://user.v1.cn:80/focus/myfocus.jhtml" target="_blank">0</a>
+                        <p class="SM_list_itemB">订阅</p>
+                    </li>
+                    <li>
+                        <a class="SM_list_item" href="http://user.v1.cn:80/focus/myfans.jhtml" target="_blank">1</a>
+                        <p class="SM_list_itemB">粉丝</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--个人中心 用户信息模块 User Msg Mod (msgMod) end-->
+        <div class="msgMod_desc">
+            <p class="SM_desc_txt">这位童鞋很懒，什么也没有留下~~~！</p>
+            <a id="msgMod_edit" class="msgMod_edit" href="javascript:;">编辑</a>
+            <div class="txt_ar" style="display: none;">
+                <textarea class="msgMod_input" id="userDetail"></textarea>
+                <div class="msg_zone">
+                    <a id="change" class="btn_sub" href="javascript:;">保存</a>
+                    <a id="cancel" class="btn_sub" href="javascript:;">取消</a>
+                </div>
+            </div>
+        </div>
+        <!--个人中心 用户导航模块 User Nav Mod (navMod) start-->
+        <div class="navMod">
+            <ul class="navMod_list">
+                <li class="">
+                    <a class="NM_list_item NM_list_item00 " href="/user/index.jhtml" >我的主页</a>
+                </li>
+                <li class="active">
+                    <a class="NM_list_item NM_list_item01 " href="/uservideo/index.jhtml" >视频管理</a>
+                </li>
+                <li class="">
+                    <a class="NM_list_item NM_list_item02 " href="/album/index.jhtml" >专辑管理</a>
+                </li>
+
+                <li class="">
+                    <!--  <i class="red"></i>-->
+                    <a class="NM_list_item NM_list_item04 borT" href="/account/myRewardIncomeDetail/index.jhtml">我的收益</a>
+                </li>
+             	<!--
+                <li class="">
+                    <a class="NM_list_item NM_list_item05" href="/account/myAdIncomeDetail/index.jhtml">广告分成</a>
+                </li>
+              -->
+                <li class="">
+                    <a class="NM_list_item NM_list_item06 borT" href="/watchRecord/index.jhtml" >观看记录</a>
+                </li>
+                <li class="">
+                    <a class="NM_list_item NM_list_item07   " href="/focus/myfocus.jhtml">我的订阅</a>
+                </li>
+                <li class="">
+                    <a class="NM_list_item NM_list_item08 " href="/collection/index.jhtml">我的收藏</a>
+                </li>
+                <li class="">
+                    <a class="NM_list_item NM_list_item09 borT" href="/pgc/myAtc.jhtml" >我的认证 </a>
+
+
+
+
+
+
+	                        <span class="v1_no">已认证</span>
+
+
+
+
+
+
+
+                </li>
+                <li id="myInfor" class="">
+                    <i id="messageredpoint" class="red" style="display:none;"></i>
+                    <a class="NM_list_item NM_list_item10 borT " href="javascript:void(0);">我的消息</a>
+                    <span class="r_cion"></span>
+                    <ul id="drops" class="drops" style="display: none;">
+                        <li><i id="mpoint" class="red" style="top: 5px;left: 52px;display:none;"></i><a href="/message/mymessage.jhtml">系统消息</a></li>
+                        <li><i id="ppoint" class="red" style="top: 5px;left: 28px;display:none;"></i><a href="/letter/index.jhtml">私信</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a class="NM_list_item NM_list_item03 " href="/focus/myfans.jhtml">我的粉丝</a>
+                </li>
+                <li>
+                    <a class="NM_list_item NM_list_item11 borT" href="http://passport.v1.cn/edit/userinfo/gousercenter.do" target="_blank">账号设置中心</a>
+                </li>
+            </ul>
+        </div>
+        <!--个人中心 用户导航模块 User Nav Mod (navMod) end-->
+
+        <!--个人中心 用户下载模块 User Download Mod (dowMod) start-->
+        <div class="dowMod">
+            <p class="dowMod_logo">
+                <i class="DM_logo_icon"></i>
+            </p>
+            <p class="dowMod_Android">
+                <a class="DM_Android" href="http://apps.v1.cn/download/apk/vodone.apk" target="_blank">Android版</a>
+            </p>
+            <p class="dowMod_iPhone">
+                <a class="DM_iPhone" href="https://itunes.apple.com/us/app/v1quan-di-yi-shi-pin-zi-mei/id593367207?mt=8" target="_blank">iPhone版</a>
+            </p>
+        </div>
+        <!--个人中心 用户下载模块 User Download Mod (dowMod) end-->
+    </div>
+
+
+
+<script type="text/javascript">
+$(function(){
+
+    //昵称修改事件-------修改？取消
+    $("#edit").bind("click",function(){
+        var txt =$(".nick_name").html();
+        $(".nick_name").hide();
+        $(this).hide();
+        $(".nick_txt").val(txt).show();
+        //$(".btn_sub").show();
+        $("#sure").show();
+        $("#nosure").show();
+    });
+    //修改
+    $("#sure").bind("click",function(){
+        $(this).hide();
+        $("#nosure").hide();
+        $(".nick_txt").hide();
+        var val = $(".nick_txt").val();
+       	if(''==val){
+        	alert("留个昵称再走吧");
+        	$("#edit").click();
+        	return;
+        }
+
+       	var nickname = $('#nickname').val();
+
+       	var nick_name = $('#nick_name').html();
+
+       	$(".nick_name").html(val).show();
+        $(".edit").show();
+        if(nickname!=nick_name){
+	        var ajaxUrl = "/user/editNickname.json";
+			$.ajax({
+				url: ajaxUrl,
+				async: false,
+				data : {nickName : nickname},
+				type: 'POST',
+				dataType: 'json',
+				success: function(o){
+					if(o.status==0){
+						alert("修改成功！");
+						$(".nick_name").html(nickname).show();
+					}else{
+						alert(o.data);
+						$(".nick_name").html(nick_name).show();
+					}
+
+				},
+				error: function(){}
+			});
+        }else{
+        	alert("修改成功！");
+        }
+    });
+    //取消
+    $("#nosure").bind("click",function(){
+        $(this).hide();
+        $("#sure").hide();
+        $(".nick_txt").hide();
+        $(".nick_name").show();
+        $("#edit").show();
+    });
+    //个性签名修改事件-------修改？取消
+    $("#msgMod_edit").bind("click",function(){
+        $(this).hide();
+        $(".SM_desc_txt").hide();
+        var cont = $(".SM_desc_txt").html();
+        $(".msgMod_input").val(cont);
+        $(".txt_ar").show();
+    });
+    //----修改
+    $("#change").bind("click",function(){
+        var sCont = $(".msgMod_input").val();
+        if(''==sCont){
+        	alert("留个签名再走吧");
+        	$("#msgMod_edit").click();
+        	return;
+        }
+        $(".SM_desc_txt").html(sCont).show();
+        $(".msgMod_edit").show();
+        $(".txt_ar").hide();
+        var userDetail = $("#userDetail").val();
+       	var ajaxUrl = "/user/editUserDetail.json";
+			$.ajax({
+				url: ajaxUrl,
+				async: false,
+				data : {userDetail : userDetail},
+				type: 'POST',
+				dataType: 'json',
+				success: function(o){
+					if(o.status==0){
+						alert("修改成功！");
+					}else{
+						alert(o.data);
+					}
+
+				},
+				error: function(){}
+			});
+
+    });
+    //----取消
+    $("#cancel").bind("click",function(){
+        $(".txt_ar").hide();
+        $(".SM_desc_txt").show();
+        $(".msgMod_edit").show();
+    });
+
+	$.ajax({
+					url : "/getMessageRedPoint.jhtml",
+					type : "post",
+					dataType : "json",
+					error : function(result) {
+
+					},
+					success : function(result) {
+					      var messageNoSeeCount=result.obj.noSeeMessageCount;
+					      var pletterNoSeeCount=result.obj.noSeePletterCount;
+					      var tcount=result.obj.totalcount;
+
+						if (tcount>0) {
+						  $("#messageredpoint").show();
+						  if(messageNoSeeCount>0){
+						      $("#mpoint").show();
+						  }else{
+						      $("#mpoint").hide();
+						  }
+						  if(pletterNoSeeCount>0){
+						      $("#ppoint").show();
+						  }else{
+						      $("#ppoint").hide();
+						  }
+						} else {
+
+                           $("#messageredpoint").hide();
+						}
+					}
+	});
+
+	seajs.use('http://static.v1.cn/js/pgc/page/sideBar');
+
+
+})
+</script>
+
+
+
+
+
+
+
+	<!---------------------头部 Header end----------------------->
+
+	<!---------------------正文 Content start----------------------->
+
+
+
+
+
+
+
+    <div class="content fl">
+    <!----------------------标题 Header start----------------------------->
+    <h2 class="userHead"><span>我的视频</span>
+
+    <a class="btn_add" href="http://upload.v1.cn/upload/index.jhtml" target="_blank">上传视频</a>
+    </h2>
+    <!----------------------标题 Header end----------------------------->
+    <!----------------------选择视频 start----------------------------->
+<div class="allVidCho">
+<form id="subfrom"  action="/uservideo/index.jhtml"  method="get">
+    <select name="orderby" id="orderby">
+        <option value="1"  >上传视频（由新到旧）</option>
+        <option value="2"  >最多评论</option>
+    </select>
+    <select name="publishstatus" id="publishstatus">
+        <option value="-1" selected >全部视频</option>
+        <option value="1"   >已发布</option>
+        <option value="0"   >审核中</option>
+    </select>
+      共<span>340</span>个视频
+</form>
+
+</div>
+    <!----------------------选择视频 END----------------------------->
+
+
+
+    <!----------------------操作视频 start----------------------------->
+<div class="videoChoCtr">
+    <input type="checkbox" id="ckAll1"><label>全选</label>
+    <span><a onclick="return delall()">删除</a></span>
+    <div class="turnPage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<a href="index.jhtml?pageNo=1&pageSize=6">1</a>
+
+
+
+						<a href="index.jhtml?pageNo=2&pageSize=6">2</a>
+
+
+
+						<a href="index.jhtml?pageNo=3&pageSize=6">3</a>
+
+
+
+						<a href="index.jhtml?pageNo=4&pageSize=6">4</a>
+
+
+
+						<a href="index.jhtml?pageNo=5&pageSize=6">5</a>
+
+
+
+
+
+
+					<a href="index.jhtml?pageNo=2&pageSize=6">
+					下一页
+					</a>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+    <!----------------------操作视频 END----------------------------->
+
+    <!----------------------视频列表 start----------------------------->
+
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId1" value="14495782">
+		-->
+	    <input type="checkbox" name="chk_list" value="14495782">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14495782.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/8d41cd9e-480b-42b0-9b89-91d9690334334-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14495782.jhtml" name="title" title="这样晒电影台词截图点赞的人最多 " target="_blank">这样晒电影台词截图点赞的人最多 </a></h2>
+
+	        <p>
+
+	            	每次看电影都会感叹，这么好的台词，简直就是我的心声。既然已经被编剧抢先 ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album1"></span></p>
+	        <p class="label" id="tag1" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14495782"></span></p>
+			<p class="label" id="tag_14495782" ></p>
+	        <p>上传于：
+
+	        2017/03/25 01:09:41
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14495782">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments1"  ></span>
+	        		-->
+					<span id="comments_14495782"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14495782)">编辑</a><a onclick="return del(14495782)">删除</a>
+	    </div>
+	</div>
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId2" value="14495370">
+		-->
+	    <input type="checkbox" name="chk_list" value="14495370">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14495370.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/a7aace74-d1df-49dd-aad4-86f537125bf84-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14495370.jhtml" name="title" title="看BBC如何拍出豆瓣评分9.9的「地球脉动第二季」 " target="_blank">看BBC如何拍出豆瓣评分9.9的「地球脉动第二季」 </a></h2>
+
+	        <p>
+
+	            	「万物皆有灵且美」——十年前，一部BBC的「地球脉动」向世界展示了大自 ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album2"></span></p>
+	        <p class="label" id="tag2" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14495370"></span></p>
+			<p class="label" id="tag_14495370" ></p>
+	        <p>上传于：
+
+	        2017/03/23 23:36:34
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14495370">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments2"  ></span>
+	        		-->
+					<span id="comments_14495370"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14495370)">编辑</a><a onclick="return del(14495370)">删除</a>
+	    </div>
+	</div>
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId3" value="14495260">
+		-->
+	    <input type="checkbox" name="chk_list" value="14495260">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14495260.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/698f2a38-341e-4d2e-9d97-f05fb80881df4-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14495260.jhtml" name="title" title="论iPhone16GB扩容翻N倍--技术、贬值、政策的风险 " target="_blank">论iPhone16GB扩容翻N倍--技术、贬值、政策的风险 </a></h2>
+
+	        <p>
+
+	            	满足对手机容量升级的需求，也可以有很多方式，目前市面上通过手工焊接更换 ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album3"></span></p>
+	        <p class="label" id="tag3" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14495260"></span></p>
+			<p class="label" id="tag_14495260" ></p>
+	        <p>上传于：
+
+	        2017/03/23 17:53:15
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14495260">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments3"  ></span>
+	        		-->
+					<span id="comments_14495260"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14495260)">编辑</a><a onclick="return del(14495260)">删除</a>
+	    </div>
+	</div>
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId4" value="14495031">
+		-->
+	    <input type="checkbox" name="chk_list" value="14495031">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14495031.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/ff7e8039-0069-4a67-ab39-1b20d6265e404-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14495031.jhtml" name="title" title="用QQ办公的白领终于有了完美的替代品 " target="_blank">用QQ办公的白领终于有了完美的替代品 </a></h2>
+
+	        <p>
+
+	            	对于我们这种一个QQ号用十几年的人来说，选择用它办公实在是无奈之举—— ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album4"></span></p>
+	        <p class="label" id="tag4" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14495031"></span></p>
+			<p class="label" id="tag_14495031" ></p>
+	        <p>上传于：
+
+	        2017/03/23 10:21:25
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14495031">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments4"  ></span>
+	        		-->
+					<span id="comments_14495031"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14495031)">编辑</a><a onclick="return del(14495031)">删除</a>
+	    </div>
+	</div>
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId5" value="14494768">
+		-->
+	    <input type="checkbox" name="chk_list" value="14494768">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14494768.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/8bac921d-326b-4157-b32d-f88f2eb5d7004-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14494768.jhtml" name="title" title="「老司机」带你去飙车：共享汽车 TOGO 体验 " target="_blank">「老司机」带你去飙车：共享汽车 TOGO 体验 </a></h2>
+
+	        <p>
+
+	            	继共享单车之后，共享汽车在北京、上海、广州、深圳等一些城市也开始普及， ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album5"></span></p>
+	        <p class="label" id="tag5" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14494768"></span></p>
+			<p class="label" id="tag_14494768" ></p>
+	        <p>上传于：
+
+	        2017/03/22 17:01:46
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14494768">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments5"  ></span>
+	        		-->
+					<span id="comments_14494768"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14494768)">编辑</a><a onclick="return del(14494768)">删除</a>
+	    </div>
+	</div>
+
+	<div class="perVideo clearfix">
+		<!--
+		<input type="hidden" id="videoId6" value="14494427">
+		-->
+	    <input type="checkbox" name="chk_list" value="14494427">
+	    <div class="perVideoImg">
+
+
+	    	    <a  href="http://www.v1.cn/video/v_14494427.jhtml"  target="_blank">
+	    	    <img width="80" height="80" src="http://f02.v1.cn/snapshots/c82bd031-1468-4290-9b87-22569924d5334-3.jpg" >
+	    	    </a>
+
+
+	    </div>
+	    <div class="videoInfor">
+	        <h2 ><a href="http://www.v1.cn/video/v_14494427.jhtml" name="title" title="原来喜欢抖腿，不只是因为心里那台缝纫机 " target="_blank">原来喜欢抖腿，不只是因为心里那台缝纫机 </a></h2>
+
+	        <p>
+
+	            	很多人会一边发呆一边抖腿，一边做事一边抖腿，一边学习一边抖腿，就算不抖 ......
+
+
+	         </p>
+			<!--
+	        <p>视频分类:<span>科技</span><span id="album6"></span></p>
+	        <p class="label" id="tag6" ></p>
+	        -->
+			<p>视频分类:<span>科技</span><span id="album_14494427"></span></p>
+			<p class="label" id="tag_14494427" ></p>
+	        <p>上传于：
+
+	        2017/03/21 22:53:57
+
+
+
+		        		<span class="pubZmz">已发布</span>
+
+
+
+	        </p>
+
+	        <p>
+				<!--
+	        	<b class="bfNum">
+
+	        	0
+	        	</b>
+	        	-->
+				<b class="bfNum" id="bf_14494427">
+				</b>
+	        	<b class="plNUm" style="font-weight:normal">
+					<!--
+	        		<span id="comments6"  ></span>
+	        		-->
+					<span id="comments_14494427"  ></span>
+	        	</b>
+	        </p>
+
+	    </div>
+	    <div class="videoControl">
+	        <a onclick="goeditvideo(14494427)">编辑</a><a onclick="return del(14494427)">删除</a>
+	    </div>
+	</div>
+
+    <!----------------------视频列表 END----------------------------->
+
+    <div class="videoChoCtr">
+        <input type="checkbox" id="ckAll2"><label>全选</label>
+        <span><a onclick="return delall()" >删除</a></span>
+        <div class="turnPage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<a href="index.jhtml?pageNo=1&pageSize=6">1</a>
+
+
+
+						<a href="index.jhtml?pageNo=2&pageSize=6">2</a>
+
+
+
+						<a href="index.jhtml?pageNo=3&pageSize=6">3</a>
+
+
+
+						<a href="index.jhtml?pageNo=4&pageSize=6">4</a>
+
+
+
+						<a href="index.jhtml?pageNo=5&pageSize=6">5</a>
+
+
+
+
+
+
+					<a href="index.jhtml?pageNo=2&pageSize=6">
+					下一页
+					</a>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<!---------------------首页 Home end------------------------->
+
+<script  language="javascript" type="text/javascript">
+	var videoArray = new Array();
+
+	videoArray[0] = 14495782;
+
+	videoArray[1] = 14495370;
+
+	videoArray[2] = 14495260;
+
+	videoArray[3] = 14495031;
+
+	videoArray[4] = 14494768;
+
+	videoArray[5] = 14494427;
+
+
+$(document).ready(function(){
+
+	$('#orderby').change(function(){
+		$('#subfrom').submit();
+	})
+	$('#publishstatus').change(function(){
+		$('#subfrom').submit();
+	})
+
+	var ids = "";
+	for(i in videoArray){
+		var vid = videoArray[i];
+
+		var tag=$('#tag_'+vid);
+		var album=$('#album_'+vid);
+		var ajaxUrl = "/uservideo/findNewsTagRelationAndAlbum.json";
+		$.ajax({
+			url: ajaxUrl,
+			async: false,
+			data : {videoId : vid},
+			type: 'POST',
+			dataType: 'json',
+			success: function(o){
+				if(o.data!=null){
+					console.info(o.data.tagrelation)
+					console.info(o.data.album)
+					tag.html(o.data.tagrelation);
+					album.html(o.data.album);
+				}
+
+			},
+			error: function(){}
+		});
+		var comments=$('#comments_'+vid);
+		ajaxUrl = "/uservideo/getvideocommentscount.json";
+		$.ajax({
+			url: ajaxUrl,
+			async: false,
+			data : {videoId : vid},
+			type: 'POST',
+			dataType: 'json',
+			success: function(o){
+				if(o.data!=null){
+					comments.html(o.data);
+				}
+
+			},
+			error: function(){}
+		});
+
+		ids += (vid + ",");
+	}
+	if(ids != '' && ids.length > 0) {
+		ids = ids.substring(0, ids.lastIndexOf(","));
+		initPlayNum(ids);
+	}
+});
+
+function initPlayNum(ids) {
+	var playNumUrl = "/uservideo/temp.json";
+	$.ajax({
+		url: playNumUrl,
+		data : {vids : ids},
+		type: 'POST',
+		dataType: 'json',
+		success: function(o){
+			var obj = $.parseJSON(o);
+			if(obj.body.data != null){
+				var data = obj.body.data;
+				for (i in data) {
+					var vid = data[i].videoId;
+					var playNum = data[i].playNum;
+					$('#bf_'+vid).html(playNum);
+				}
+			}
+		},
+		error: function(){}
+	});
+}
+
+$("#ckAll1").click(function() {
+    $("input[name='chk_list']").prop("checked", this.checked);
+     $("input[id='ckAll2']").prop("checked", this.checked);
+});
+ $("#ckAll2").click(function() {
+    $("input[name='chk_list']").prop("checked", this.checked);
+      $("input[id='ckAll1']").prop("checked", this.checked);
+});
+  $("input[name='chk_list']").click(function() {
+    var $subs = $("input[name='chk_list']");
+    $("#ckAll1").prop("checked" , $subs.length == $subs.filter(":checked").length ? true :false);
+    $("#ckAll2").prop("checked" , $subs.length == $subs.filter(":checked").length ? true :false);
+  });
+
+
+function goeditvideo(vid){
+  	var backurl = window.location.href;
+  	backurl = backurl.replace("&", "@");
+  	window.location.href = "/uservideo/editvideo.jhtml?backurl="+backurl+"&videoId="+vid;
+}
+
+function delall(){
+	var arrChk=$("input[name='chk_list']:checked");
+	if(arrChk.length==0){
+		alert("请选择要删除的视频");
+		return;
+	}
+	if(confirm("确定要删除视频吗？"))
+ 	{
+
+    for (var i=0;i<arrChk.length;i++)
+    {
+
+	    var ajaxUrl = "/uservideo/delvideo.json";
+		$.ajax({
+			url: ajaxUrl,
+			data : {videoId : arrChk[i].value},
+			type: 'POST',
+			dataType: 'json',
+			success: function(o){},
+			error: function(){}
+		});
+
+    }
+
+     window.setTimeout(function() {
+     	  window.location.href = window.location.href;
+      }, 150);
+
+	}
+}
+
+
+
+function del(id){
+
+ if(confirm("确定要删除视频吗？")){
+ 	var ajaxUrl = "/uservideo/delvideo.json";
+	$.ajax({
+		url: ajaxUrl,
+		data : {videoId : id},
+		type: 'POST',
+		dataType: 'json',
+		success: function(o){
+			if(o.status === 0){
+				window.location.href = window.location.href;
+				return;
+			}
+		},
+		error: function(){}
+	});
+
+ }
+
+}
+</script>
+	<!---------------------正文 Content end------------------------->
+	    </div>
+	  </div>
+
+    <div class="push"></div>
+	<!---------------------底部 Footer start--------------------->
+
+
+
+</div>
+<!--outWrapper--end-->
+<div class="footer">
+	<div class="footerBom">
+		<div class="wrap">
+			<div class="fb_box">
+				<div class="fb_left">
+					<ul class="fb_list">
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/" class="fb_list_item">公司介绍</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/primarybusiness/intro_group/" class="fb_list_item">主营业务</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/callus/" class="fb_list_item">联系我们</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/aboutus/career/" class="fb_list_item">第一视频招聘</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/roll/1001/1.shtml" class="fb_list_item">滚动新闻</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/sitemap/" class="fb_list_item">网站地图</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/aboutus/law/" class="fb_list_item">法律声明</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/structure/v1structure/" class="fb_list_item">集团构架</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/adservice/" class="fb_list_item">举报差错</a>
+						</li>
+						<li>
+						<a target="_blank" href="http://www.v1.cn/vodone/newscenter/company/" class="fb_list_item">公司动态</a>
+						</li>
+					</ul>
+					<p class="fb_txt">
+					<span class="fb_txt_item">邮箱:service@v1.cn</span>
+					<span class="fb_txt_item">热线: 400-610-0220</span>
+					<span class="fb_txt_item">不良信息举报: 010-64706601</span>
+					</p>
+				</div>
+				<div class="fb_right">
+					<p class="fb_txt">
+					<span class="fb_txt_item">第一视频公司</span>
+					<span class="fb_txt_item">版权所有</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<!---------------------底部 Footer end--------------------->
+</body>
+</html>

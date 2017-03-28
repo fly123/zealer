@@ -2,17 +2,22 @@ import time
 import urllib2
 
 
-def http_request(url, cookie = ''):
+def http_request(url, cookie = '', data = ''):
     request = urllib2.Request(url)
     request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36')
 
     if cookie != '':
         request.add_header('Cookie', cookie)
 
-    response = urllib2.urlopen(request)
-    data = response.read()
+    result = ''
+    if data == '':
+        response = urllib2.urlopen(request)
+        result = response.read()
+    else:
+        response = urllib2.urlopen(request, data)
+        result = response.read()
 
-    return data
+    return result
 
 
 def get_current_time():

@@ -20,7 +20,6 @@ def parse_html(html):
     result_list = []
     data = html
     while True:
-        result_dict = {}
         tmp, data = common.match(data, '<div class="v-meta-title"', '>')
         url, data = common.match(data, 'href="', '"')
         print url
@@ -59,6 +58,7 @@ def parse_html(html):
             playCount  = str(int(float(tmp) * 10000))
         print playCount
 
+        result_dict = {}
         result_dict['title'] = title
         result_dict['playCount'] = playCount
         result_dict['uploadTime'] = uploadTime
