@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 cookie = 'UM_distinctid=15b0e907217885-09dba288e547b7-5e4f2b18-144000-15b0e90721872c; JSESSIONID=AB7E99954A49770563D2349AB495A80C; CNZZDATA1253982558=371244018-1490688831-%7C1490688831'
@@ -13,7 +13,7 @@ def get_html(url, post_data):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url, cookie, post_data)
+    data = my_common.http_request(url, cookie, post_data)
 
     return data
 
@@ -31,7 +31,7 @@ def parse_html(html):
         result_dict['link'] = 'https://mobile.rr.tv/pages/videoShare/?id=%s' % info_dict['id']
         result_dict['playCount'] = info_dict['playCount']
         result_dict['channel'] = '人人视频'
-        result_dict['uploadTime'] = common.timestamp_to_str(info_dict['updateTime'] / 1000)[ : len('2017-03-25')]
+        result_dict['uploadTime'] = my_common.timestamp_to_str(info_dict['updateTime'] / 1000)[: len('2017-03-25')]
 
         result_list.append(result_dict)
 

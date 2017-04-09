@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 
 
 def get_html(url):
@@ -20,36 +20,36 @@ def parse_html(html):
     result_list = []
     data = html
     while True:
-        tmp, data = common.match(data, '<div class="v-meta-title"', '>')
-        url, data = common.match(data, 'href="', '"')
+        tmp, data = my_common.match(data, '<div class="v-meta-title"', '>')
+        url, data = my_common.match(data, 'href="', '"')
         print url
         if url == '':
             break
 
-        title, data = common.match(data, 'title="', '"')
+        title, data = my_common.match(data, 'title="', '"')
         print title
         if title == '':
             break
 
-        uploadTime, data = common.match(data, '<span class="v-publishtime">', '</span>')
+        uploadTime, data = my_common.match(data, '<span class="v-publishtime">', '</span>')
         print uploadTime
         if uploadTime == '':
             break
         if uploadTime.find('昨天') != -1:
-            uploadTime = common.get_before_time(1)
+            uploadTime = my_common.get_before_time(1)
         elif uploadTime.find('前天') != -1:
-            uploadTime = common.get_before_time(2)
+            uploadTime = my_common.get_before_time(2)
         elif uploadTime.find('天前') != -1:
-            uploadTime = common.get_before_time(uploadTime.replace('天前', ''))
+            uploadTime = my_common.get_before_time(uploadTime.replace('天前', ''))
         elif uploadTime.find('-') != -1 and uploadTime.find(':') != -1:
-            uploadTime = common.get_current_time()[ : 4] + '-' + uploadTime.split(' ')[0]
+            uploadTime = my_common.get_current_time()[: 4] + '-' + uploadTime.split(' ')[0]
         elif uploadTime.find('-') != -1 and len(uploadTime) == len('2016-12-30'):
             pass
         else:
-            uploadTime = common.get_current_time()
+            uploadTime = my_common.get_current_time()
         print uploadTime
 
-        playCount, data = common.match(data, '<span class="v-num">', '</span>')
+        playCount, data = my_common.match(data, '<span class="v-num">', '</span>')
         if playCount == '':
             break
         playCount = playCount.replace(',', '')

@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -30,7 +30,7 @@ def parse_html(html):
         result_dict['link'] = 'http://www.bilibili.com/video/av%s/' % info_dict['aid']
         result_dict['playCount'] = info_dict['play']
         result_dict['channel'] = 'B站'
-        result_dict['uploadTime'] = common.timestamp_to_str(info_dict['created'])[ : len('2017-03-25')]
+        result_dict['uploadTime'] = my_common.timestamp_to_str(info_dict['created'])[: len('2017-03-25')]
 
         result_list.append(result_dict)
 

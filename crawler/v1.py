@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -14,7 +14,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url, cookie)
+    data = my_common.http_request(url, cookie)
 
     return data
 
@@ -25,18 +25,18 @@ def parse_html(html):
     # print data
 
     while True:
-        vid, data = common.match(data, 'name="chk_list" value="', '"')
+        vid, data = my_common.match(data, 'name="chk_list" value="', '"')
         print vid
         if vid == '':
             break
 
-        url, data = common.match(data, 'href="', '"')
+        url, data = my_common.match(data, 'href="', '"')
         print url
 
-        title, data = common.match(data, 'title="', '"')
+        title, data = my_common.match(data, 'title="', '"')
         print title
 
-        uploadTime, data = common.match(data, '<p>上传于：', '<span')
+        uploadTime, data = my_common.match(data, '<p>上传于：', '<span')
         print uploadTime
         uploadTime = uploadTime.replace('/', '-')
         uploadTime = uploadTime[: len('2017-03-25')]
@@ -93,7 +93,7 @@ def get_play_count_html(url, post_data):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url, cookie, post_data)
+    data = my_common.http_request(url, cookie, post_data)
 
     return data
 

@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -11,7 +11,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url)
+    data = my_common.http_request(url)
 
     return data
 
@@ -41,7 +41,7 @@ def parse_html(html):
 
         uploadTime = info_dict['uploadtime']
         if len(uploadTime) != len('2017-04-07'):
-            uploadTime = common.get_current_time()
+            uploadTime = my_common.get_current_time()
         result_dict['uploadTime'] = uploadTime
 
         result_list.append(result_dict)

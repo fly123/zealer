@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 
 
 def get_html(url):
@@ -56,7 +56,7 @@ def get_data(url):
         result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['url']
-        result_dict['uploadTime'] = common.timestamp_to_str(info_dict['uploadTime'] / 1000)[ : len('2017-01-05')]
+        result_dict['uploadTime'] = my_common.timestamp_to_str(info_dict['uploadTime'] / 1000)[: len('2017-01-05')]
         result_dict['channel'] = '搜狐视频'
         result_dict['playCount'] = play_count_dict[str(info_dict['id'])]
 
