@@ -14,6 +14,7 @@ import acfun
 import bilibili
 import tudou
 import meipai
+import youtube
 import v1
 import pearvideo
 import rrmj
@@ -59,7 +60,7 @@ def get_data(channel):
         result_list = meipai.main()
 
     if channel == 'Youtube':
-        pass
+        result_list = youtube.main()
 
     if channel == '第一视频':
         result_list = v1.main()
