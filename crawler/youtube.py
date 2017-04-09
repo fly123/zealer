@@ -10,8 +10,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    res = my_common.http_request(url)
-    data = res.read()
+    data = my_common.http_request(url)
 
     return data
 
@@ -53,8 +52,7 @@ def get_url_list_html():
     # data = f.read()
     # f.close()
 
-    res = my_common.http_request('https://www.youtube.com/channel/UC_Ks6fcoGgv4LotTZszYs-g/videos')
-    data = res.read()
+    data = my_common.http_request('https://www.youtube.com/channel/UC_Ks6fcoGgv4LotTZszYs-g/videos')
 
     return data
 
