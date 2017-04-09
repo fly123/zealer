@@ -102,11 +102,11 @@ def main():
             '搜狐新闻',
             '秒拍'
         ]
-    result_list = []
+
     for channel in channel_list:
         try:
             print '********************channel: %s************' % channel
-            rsult_list = get_data(channel)
+            result_list = get_data(channel)
             print result_list, '\n', len(result_list)
 
             for result_dict in result_list:
