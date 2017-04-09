@@ -3,6 +3,7 @@ import urllib
 import time
 import json
 import my_common
+import db
 import youku
 import qq
 import sohu
@@ -107,6 +108,10 @@ def main():
             print '********************channel: %s************' % channel
             rsult_list = get_data(channel)
             print result_list, '\n', len(result_list)
+
+            for result_dict in result_list:
+                db.insert_db(result_dict)
+
         except Exception as e:
             print 'channel: %s   error: %s' % (channel, e)
     # return result_list
