@@ -51,7 +51,6 @@ def get_data(url):
     info_list = parse_html(html)
     # return result_list
 
-
     for info_dict in info_list:
         result_dict = {}
         result_dict['title'] = info_dict['title']
@@ -61,6 +60,8 @@ def get_data(url):
         result_dict['playCount'] = get_play_count(info_dict['link'])
 
         print result_dict
+        if result_dict['playCount'] == '0':
+            continue
         result_list.append(result_dict)
         time.sleep(1)
 
@@ -78,10 +79,12 @@ def get_play_count_html(url):
 
 
 def parse_play_count_html(html):
-    playCount = 0
+    playCount = '0'
     data = html
 
     playCount, data = common.match(data, '<meta itemprop="interactionCount" content="', '"')
+    if playCount == '':
+        playCount = '0'
 
     return playCount
 
