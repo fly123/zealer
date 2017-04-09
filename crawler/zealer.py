@@ -3,7 +3,8 @@ import urllib
 import time
 import json
 import my_common
-import db
+# import db
+
 import youku
 import qq
 import sohu
@@ -16,10 +17,16 @@ import meipai
 import v1
 import pearvideo
 import rrmj
+import baidu
 import a360kan
 import toutiao
+import zaker
 import uc
 import yidianzixun
+import ttkb
+import ifeng
+import btime
+import shxw
 
 
 def get_data(channel):
@@ -51,6 +58,9 @@ def get_data(channel):
     if channel == '美拍':
         result_list = meipai.main()
 
+    if channel == 'Youtube':
+        pass
+
     if channel == '第一视频':
         result_list = v1.main()
 
@@ -60,17 +70,38 @@ def get_data(channel):
     if channel == '人人视频':
         result_list = rrmj.main()
 
+    if channel == '百度视频':
+        result_list = baidu.main()
+
     if channel == '360影视':
         result_list = a360kan.main()
 
     if channel == '今日头条':
         result_list = toutiao.main()
 
+    if channel == 'ZAKER':
+        result_list = zaker.main()
+
     if channel == 'UC':
         result_list = uc.main()
 
     if channel == '一点资讯':
         result_list = yidianzixun.main()
+
+    if channel == '天天快报':
+        result_list = ttkb.main()
+
+    if channel == '凤凰网':
+        result_list = ifeng.main()
+
+    if channel == '北京时间':
+        result_list = btime.main()
+
+    if channel == '搜狐新闻':
+        result_list = shxw.main()
+
+    if channel == '秒拍':
+        pass
 
     return result_list
 
@@ -90,7 +121,7 @@ def main():
             '第一视频',
             '梨视频',
             '人人视频',
-            '百度百家号',
+            '百度视频',
             '360影视',
             '今日头条',
             'ZAKER',
@@ -109,8 +140,8 @@ def main():
             result_list = get_data(channel)
             print result_list, '\n', len(result_list)
 
-            for result_dict in result_list:
-                db.insert_db(result_dict)
+            # for result_dict in result_list:
+            #     db.insert_db(result_dict)
 
         except Exception as e:
             print 'channel: %s   error: %s' % (channel, e)
