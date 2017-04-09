@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -11,7 +11,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url)
+    data = my_common.http_request(url)
 
     return data
 
@@ -29,7 +29,7 @@ def parse_html(html):
         result_dict['link'] = info_dict['display_url']
         result_dict['playCount'] = info_dict['detail_play_effective_count']
         result_dict['channel'] = '今日头条'
-        result_dict['uploadTime'] = common.timestamp_to_str(info_dict['behot_time'])[ : len('2017-03-25')]
+        result_dict['uploadTime'] = my_common.timestamp_to_str(info_dict['behot_time'])[: len('2017-03-25')]
 
         result_list.append(result_dict)
 

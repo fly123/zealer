@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 cookie = '__guid=ed795593-d528-4b7f-b417-5dcdf2b6bd55; __gid=196757375.164997743.1490599080768.1490610374649.7; usid=9310b07c4045791fd808f73448759478; lf=1'
@@ -13,7 +13,7 @@ def get_html(url, post_data):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url, cookie, post_data)
+    data = my_common.http_request(url, cookie, post_data)
 
     return data
 

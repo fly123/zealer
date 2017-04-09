@@ -60,7 +60,6 @@ def insert_db(info_dict):
         collection1.insert(tmp_dict)
 
 
-
 if __name__ == '__main__':
     mydict = {'title' : 'aa', 'link' : 'http://www.baidu.com', 'channel' : 'bb', 'playCount' : '11', 'uploadTime' : '2017-03-30'}
     print find_videoInfo(mydict)

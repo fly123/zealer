@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -39,7 +39,7 @@ def parse_html(html):
         if uploadTime.find('-') != -1:
             pass
         else:
-            uploadTime = common.get_current_time()
+            uploadTime = my_common.get_current_time()
         result_dict['uploadTime'] = uploadTime
 
         result_list.append(result_dict)

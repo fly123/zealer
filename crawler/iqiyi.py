@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -23,28 +23,28 @@ def parse_html(html):
     # print data
     while True:
         result_dict = {}
-        tvid, data = common.match(data, '<li tvid="', '"')
+        tvid, data = my_common.match(data, '<li tvid="', '"')
         print tvid
         print tvid == ''
         if tvid == '':
             break
 
-        url, data = common.match(data, '<a href="', '"')
+        url, data = my_common.match(data, '<a href="', '"')
         print url
 
-        title, data = common.match(data, 'data-title="', '"')
+        title, data = my_common.match(data, 'data-title="', '"')
         title = HTMLParser.HTMLParser().unescape(title)
         print title
 
-        uploadTime, data = common.match(data, '<span class="playTimes_status tl">', '</span>')
+        uploadTime, data = my_common.match(data, '<span class="playTimes_status tl">', '</span>')
         uploadTime = uploadTime.replace('上传', '')
         print uploadTime
         if uploadTime.find('昨天') != -1:
-            uploadTime = common.get_before_time(1)
+            uploadTime = my_common.get_before_time(1)
         elif uploadTime.find('-') != -1:
             pass
         else:
-            uploadTime = common.get_current_time()
+            uploadTime = my_common.get_current_time()
         print uploadTime
 
         result_dict['tvid'] = tvid

@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 
@@ -23,21 +23,21 @@ def parse_html(html):
     # print data
 
     while True:
-        uploadTime, data = common.match(data, 'data-date="', '"')
+        uploadTime, data = my_common.match(data, 'data-date="', '"')
         print uploadTime
         if uploadTime == '':
             break
         uploadTime = uploadTime.replace('/', '-')
         print uploadTime
 
-        title, data = common.match(data, 'data-title="', '"')
+        title, data = my_common.match(data, 'data-title="', '"')
         print title
 
-        url, data = common.match(data, 'data-url="', '"')
+        url, data = my_common.match(data, 'data-url="', '"')
         url = 'http://www.acfun.cn' + url
         print url
 
-        playCount, data = common.match(data, '<span class="nums">', '</span>')
+        playCount, data = my_common.match(data, '<span class="nums">', '</span>')
         print playCount
 
         result_dict = {}

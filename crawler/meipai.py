@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 
 
 def get_html(url):
@@ -10,7 +10,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url)
+    data = my_common.http_request(url)
 
     return data
 
@@ -20,15 +20,15 @@ def parse_html(html):
     data = html
     # print data
     while True:
-        uploadTime, data = common.match(data, '<meta itemprop="uploadDate" content="', 'T')
+        uploadTime, data = my_common.match(data, '<meta itemprop="uploadDate" content="', 'T')
         print uploadTime
         if uploadTime == '':
             break
 
-        title, data = common.match(data, 'class="db pa pai" alt="', '"')
+        title, data = my_common.match(data, 'class="db pa pai" alt="', '"')
         print title
 
-        url, data = common.match(data, '<a hidefocus href="', '"')
+        url, data = my_common.match(data, '<a hidefocus href="', '"')
         url = 'http://www.meipai.com' + url
         print url
 
@@ -73,7 +73,7 @@ def get_play_count_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url)
+    data = my_common.http_request(url)
 
     return data
 
@@ -82,7 +82,7 @@ def parse_play_count_html(html):
     playCount = '0'
     data = html
 
-    playCount, data = common.match(data, '<meta itemprop="interactionCount" content="', '"')
+    playCount, data = my_common.match(data, '<meta itemprop="interactionCount" content="', '"')
     if playCount == '':
         playCount = '0'
 

@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import youku
 import qq
 import sohu

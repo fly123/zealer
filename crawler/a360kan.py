@@ -2,7 +2,7 @@
 import urllib
 import time
 import json
-import common
+import my_common
 import HTMLParser
 
 cookie = '__guid=121874957.3574336066989773000.1490598833550.8323; tkuc=NDQzOTgyJm5pY2tuYW1lPVpFQUxFUkNoaW5hJnNpZ249MDVmNGRkMzgzMzUwOWFlMTc5OTM0ZDcwMjlmODFiMWR4aWFua2FudWN1aWQ9MTAwMzY3ODkzMjgmbG9naW5fdGltZT0xNDkwNzc4NDU3JnRodW1iPXQwMWRmM2ZlYTNmNGM%3D; tk_token=49b19c842d51ba2119dbe3cce8bad3eb; count=8; __huid=11a4zcMRzB+tBGnmyWBdrUr0Tg2TQgM6ExxO9uqW0dEF0%3D; crypt_code=ZjNr3G3HTycJ95DCl7%252BLk2bUBvMjJ7%252Fjb4LDacxdQylif1F6p8m%252F%252BLEUtJz38NY%252B'
@@ -13,7 +13,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    data = common.http_request(url, cookie)
+    data = my_common.http_request(url, cookie)
 
     return data
 
@@ -24,23 +24,23 @@ def parse_html(html):
     # print data
 
     while True:
-        tmp, data = common.match(data, '<ul class="videolist-line', '>')
+        tmp, data = my_common.match(data, '<ul class="videolist-line', '>')
         if tmp == '':
             break
 
-        url, data = common.match(data, '<a href="', '"')
+        url, data = my_common.match(data, '<a href="', '"')
         print url
 
 
-        title, data = common.match(data, '<p class="content">', '</p>')
+        title, data = my_common.match(data, '<p class="content">', '</p>')
         print title
 
-        uploadTime, data = common.match(data, '上传日期：', '</p>')
+        uploadTime, data = my_common.match(data, '上传日期：', '</p>')
         print uploadTime
         uploadTime = uploadTime[: len('2017-03-25')]
         print uploadTime
 
-        playCount, data = common.match(data, '播放量：', '</p>')
+        playCount, data = my_common.match(data, '播放量：', '</p>')
         print playCount
         if playCount.find('万') != -1:
             tmp = playCount.replace('万', '')
