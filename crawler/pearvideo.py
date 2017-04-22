@@ -6,8 +6,8 @@ import my_common
 import HTMLParser
 
 
-#登录需要验证码
-cookie = 'JSESSIONID=7D76867063EA85161C623783E5E72AB6; PV_CMS=srv-pv-prod-cms2_80'
+#登录需要验证码 login_url: http://139.224.6.185/cms-admin/main.htm
+cookie = 'JSESSIONID=10F8856BF4E845392E21806D4FC0E3EC; PV_CMS=srv-pv-prod-cms2_80'
 
 
 def get_html(url, post_data):
@@ -51,8 +51,8 @@ def get_data(url, post_data):
 
 def main():
     result_list = []
-    post_data = '_search=false&nd=1490692042733&rows=50&page=1&sidx=&sord=asc&tableType=5&nodeId=123'
-    result_list = get_data('http://139.224.6.185/cms-admin/report/queryNewContentStatList.json', post_data)
+    post_data = '_search=false&nd=1490692042733&rows=50&page=1&sidx=&sord=asc&tableType=1&nodeId=123'
+    result_list = get_data('http://139.224.6.185/cms-admin/report/queryContentStatList.json', post_data)
 
     print result_list, '\n', len(result_list)
     return result_list
