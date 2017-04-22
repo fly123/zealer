@@ -10,8 +10,7 @@ def get_html(url):
     # data = f.read()
     # f.close()
 
-    res =urllib.urlopen(url)
-    data = res.read()
+    data = my_common.http_request(url)
 
     return data
 
