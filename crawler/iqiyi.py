@@ -34,7 +34,7 @@ def parse_html(html):
 
         title, data = my_common.match(data, 'data-title="', '"')
         title = HTMLParser.HTMLParser().unescape(title)
-        print title
+        print title.encode('utf-8')
 
         uploadTime, data = my_common.match(data, '<span class="playTimes_status tl">', '</span>')
         uploadTime = uploadTime.replace('上传', '')

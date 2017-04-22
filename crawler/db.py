@@ -38,23 +38,28 @@ def find_videoDailyCount(videoId, date):
 
 
 def insert_db(info_dict):
+    #print '-----:   ', info_dict
     collection = db.videoInfo
     result_dict = find_videoInfo(info_dict)
+    #print '11111:   ', result_dict
     if result_dict != None:
         result_dict['playCount'] = info_dict['playCount']
         result_dict['uploadTime'] = info_dict['uploadTime']
         collection.save(result_dict)
     else:
         collection.insert(info_dict)
-        
+    
+    #print '222222'    
     
     result_dict = find_videoInfo(info_dict)
+
+    #print '333333'
     #print result_dict['_id'] 
     collection1 = db.videoDailyCount
     result1_dict = find_videoDailyCount(result_dict['_id'], my_common.get_current_time())
     if result1_dict != None:
         result1_dict['playCount'] = info_dict['playCount']
-        collection.save(result1_dict)
+        collection1.save(result1_dict)
     else:
         tmp_dict = {'videoId' : result_dict['_id'], 'date' : my_common.get_current_time(), 'playCount' : result_dict['playCount']}
         collection1.insert(tmp_dict)
