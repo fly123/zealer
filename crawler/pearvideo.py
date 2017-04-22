@@ -7,7 +7,7 @@ import HTMLParser
 
 
 #登录需要验证码
-cookie = 'JSESSIONID=038C0E6A517B4D0C382AA70AC123EA80; PV_CMS=srv-pv-prod-cms1_80'
+cookie = 'JSESSIONID=7D76867063EA85161C623783E5E72AB6; PV_CMS=srv-pv-prod-cms2_80'
 
 
 def get_html(url, post_data):
