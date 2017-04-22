@@ -3,7 +3,9 @@ import urllib
 import time
 import json
 import my_common
+import send_email
 # import db
+
 
 import youku
 import qq
@@ -28,6 +30,7 @@ import ttkb
 import ifeng
 import btime
 import shxw
+import miaopai
 
 
 def get_data(channel):
@@ -102,7 +105,7 @@ def get_data(channel):
         result_list = shxw.main()
 
     if channel == '秒拍':
-        pass
+        result_list = miaopai.main()
 
     return result_list
 
@@ -135,6 +138,7 @@ def main():
             '秒拍'
         ]
 
+    body_text = ''
     for channel in channel_list:
         try:
             print '********************channel: %s************' % channel
@@ -146,6 +150,9 @@ def main():
 
         except Exception as e:
             print 'channel: %s   error: %s' % (channel, e)
+            body_text += 'channel: %s   error: %s' % (channel, e)  + '</br>'
+
+    send_email.main(body_text)
     # return result_list
 
 

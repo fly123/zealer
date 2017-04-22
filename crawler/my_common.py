@@ -20,6 +20,27 @@ def http_request(url, cookie = '', data = ''):
     return result
 
 
+def get_cookie(url, cookie = '', data = ''):
+    request = urllib2.Request(url)
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36')
+
+    if cookie != '':
+        request.add_header('Cookie', cookie)
+
+    result = ''
+    if data == '':
+        response = urllib2.urlopen(request)
+        print dir(response)
+        result = response.read()
+    else:
+        response = urllib2.urlopen(request, data)
+        print dir(response)
+        print dir(response.headers)
+        result = response.read()
+
+    return result
+
+
 def get_current_time():
     return time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
@@ -52,4 +73,5 @@ def match(html, st_str, end_str):
 if __name__ == '__main__':
     print get_before_time(2)
     print timestamp_to_str(1487595085411 / 1000)
+    print get_cookie('http://ucenter.rrmj.tv/page/login', '', 'username=13389622309&password=2876c246e1faf92246544a7b9897e3fd')
     pass

@@ -5,6 +5,8 @@ import json
 import my_common
 import HTMLParser
 
+
+#登录需要验证码
 cookie = 'JSESSIONID=038C0E6A517B4D0C382AA70AC123EA80; PV_CMS=srv-pv-prod-cms1_80'
 
 
