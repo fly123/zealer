@@ -11,10 +11,10 @@ def http_request(url, cookie = '', data = ''):
 
     result = ''
     if data == '':
-        response = urllib2.urlopen(request, data=None, timeout=5)
+        response = urllib2.urlopen(request, data=None, timeout=10)
         result = response.read()
     else:
-        response = urllib2.urlopen(request, data, timeout=5)
+        response = urllib2.urlopen(request, data, timeout=10)
         result = response.read()
 
     return result
