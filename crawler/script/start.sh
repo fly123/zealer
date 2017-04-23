@@ -11,7 +11,7 @@ echo $result
 NOW_TIME=`date +'%Y-%m-%d %H:%M:%S'`
 if [ "$result" -eq "0"  ]
 then
-    echo "start $TARGET $NOW_TIME" > log/zealer.log
+    echo "start $TARGET $NOW_TIME" > log/zealer_start.log
     script/kill.sh
     nohup python $TARGET > log/zealer.log 2>&1 &
 else
