@@ -1,0 +1,649 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="index">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>秀兜后台管理</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+<title>product</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta name="keywords" content="index">
+<link rel="shortcut icon" href="https://images.xiudou.net/Public/images/user_backstage/titlelogo.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://images.xiudou.net/Public/css/cmd.css?v=2.1">
+<link rel="stylesheet" type="text/css" href="https://images.xiudou.net/Public/css/common.css?v=2.1"/>
+<link rel="stylesheet" href="https://images.xiudou.net/Public/css/amazeui.min.css?v=2.1">
+<link rel="stylesheet" href="https://images.xiudou.net/Public/css/admin_user.css?v=2.1">
+<link rel="stylesheet" href="https://images.xiudou.net/Public/css/admin.css?v=2.1">
+<link rel="stylesheet" type="text/css" href="https://images.xiudou.net/Public/css/component.css?v=2.1" />
+<link rel="stylesheet" href="https://images.xiudou.net/Public/css/swiper.min.css?v=2.1">
+<script type="text/javascript" src="https://images.xiudou.net/Public/js/jquery-2.2.0.min.js?v=2.1"></script>
+<script type="text/javascript" src="https://images.xiudou.net/Public/js/jquery.cookie.js?v=2.1"></script>
+<script src="http://cdn.ronghub.com/RongIMVoice-2.2.4.min.js"></script>
+<script src="https://images.xiudou.net/Public/js/MD5.min.js?v=2.1"></script>
+<script src="https://images.xiudou.net/Public/js/RongIMClient.js?v=2.1"></script>
+<script type="text/javascript" src="https://images.xiudou.net/Public/js/admin/comm.js?v=2.1"></script>
+<script type="text/javascript" src="https://images.xiudou.net/Public/js/user/X16.util.js?v=2.1"></script>
+<style>
+a.status {padding: 10px 20px;background-color: #DDDDDD;color: black;border-radius: 3px;margin-right: 10px}
+td.statuscur {background-color: #000;color: white;}
+.admin-header-list li a:hover:after {opacity: 1;color:black;border-bottom-color: #666}
+.trcontent td span a{color:#666666;font-size:12px;font-weight:bolder;}
+.clearfix:after {content: " ";display: block;clear: both;height: 0;}
+.clearfix {zoom: 1;}
+</style>
+</head>
+<body style="background: #F7F7F7">
+<div style="background-color:white;color:white;border:0;width: 100%;">
+<header class="am-topbar admin-header" style="background-color:white;color:white;border:0;max-width:1226px;height: 100px;">
+<div id="topbar-collapse" style="padding: 0;line-height: 70px;">
+<div style="text-align:left;margin-top: 10px;float: left">
+<a href="http://admin.xiudou.net/user/history_cover.html">
+<img src="https://images.xiudou.net/Public/images/user_backstage/logo_new.png?2.1" style="height: 30px;display: block;text-align: center; margin-top: 26px">
+</a>
+</div>
+<div style="text-align:right;margin-top: 10px;float: right">
+<span class="td_hover" style="display:inline-block;color:#666;font-size: 16px;" id="customer" >
+<img class='customer_img' style="display:inline-block;margin:0px 10px 0px 0px;vertical-align: middle;" src="https://images.xiudou.net/Public/images/user_backstage/customer.png">客服
+</span>
+<span style="margin:0 20px;" class="font_15 shuxian">|</span>
+<span style="width:auto; font-size:18px;position: relative;" id="topMes">
+<img class="topMes" src="https://images.xiudou.net/Public/images/user_backstage/messageN.png" style="position: relative;top: -25px;"/>
+<div style="height:6px;width:6px;border-radius: 50%;background: #FF2E6B;position: absolute;top: 3px;left: 14px;display:none" class="mesYuan"></div>
+<a id='unread_msg' href="/Vendor/notification?status=1" style="font-size: 16px;">消息</a>
+</span>
+<span style="margin:0 20px;" class="font_15 shuxian">|</span>
+<span style="width:120px; font-size:18px;font-size:16px;">
+<img class="topAvatar" src="https://images.xiudou.net/Public/images/2014/12/08/001.jpg" style="border-radius: 50%;height: 20px;width: 20px;position: relative;top: -25px;"/>
+<a class="usersname_" style="font-size:16px;" href="/user/perfect_profile.html">ZEALER</a>
+</span>
+<span style="margin:0 20px;" class="font_15 shuxian">|</span>
+<span><a class="font_15" id="logout" href="#">退出</a></span>
+</div>
+</div>
+</header>
+</div>
+
+<audio id="video1" >
+          <source src="https://images.xiudou.net/Public/images/71.mp3" />
+ </audio>
+
+<!--收到第一笔钱提示认证-->
+<div class="md-modal md-effect-10" id="modal-23" >
+	<div style="text-align:center;">
+		<div style="text-align:center;height:140px;width: 90%;margin-left: 20px; line-height: 0.7;color: rgb(248, 50, 105)">
+			<p style="padding-top: 70px;">恭喜！您收到第一笔钱！</p>
+			<p style="padding-top: 20px;">为保证安全，需要进行认证才能取款</p>
+		</div>
+		<div style="height: 60px;">
+			<button class="md-close md-cancel" style="margin:20px 10px 20px 20px" id="wallet_auth_one_cancel">取消</button>
+			<a href='/User/perfect_profile'><button id="wallet_auth_one_submit" class="md-submit" style="margin-left: 0">认证</button></a>
+		</div>
+	</div>
+</div>
+<div class="voucher-cover" id="voucher-cover"></div>
+
+
+<!--提示-->
+<div class="md-modal md-effect-10" id="modal-35">
+	<div style="text-align:center;">
+		<div style="text-align:center;height:140px;width: 90%;margin-left: 20px; line-height: 0.7;color: rgb(248, 50, 105)">
+			<p style="padding-top: 70px;" id="error_msg"></p>
+		</div>
+		<div style="height: 60px;">
+			<button id="error_msg_submit" class="md-submit" style="width: 350px;">确定</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var DOMIAN_XDAPI2 = 'https://xdapi2.xiudou.net';
+var auth_token = 'GJWinO5GdT1RASW%2F%2Bz9f56uPaobzyCUugu7ELV2aOW1ua1OoOP%2B8li2grTxYioRaDgyNtZVk76SHdbx80nkYTA%3D%3D';
+</script>
+<script type="text/javascript" src="https://images.xiudou.net/Public/js/top.js?v=2.1"></script>
+<script type="text/javascript" language="javascript" src="https://images.xiudou.net/Public/js/jquery.qrcode-0.6.0.min.js?v=2.1"></script>
+<style type="text/css">
+.qr_close {
+    background: rgba(0, 0, 0, 0) url("https://images.xiudou.net/Public/images/user_backstage/qrcode_close.png") no-repeat scroll 0 0;
+    float: right;
+    height: 30px;
+    margin: -32px -13px 0 0;
+    width: 30px;
+    z-index: 9999;
+}
+.vm{}
+</style>
+	<div class="home-container">
+		<div class="sitediv">
+			<span class="font_10">您现在的位置：</span>
+			<span class="font_10 font_dq_color">分享管理</span>
+		</div>
+		<div id="admin_sidebar" class="menuclass">
+	<ul class="am-list admin-siderbar-list"  style="text-align:center;height:100%; ">
+		<li style="height: 20px;border:0"></li>
+		<li id="lishi" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/User/history_cover?status=0">分享管理</a></li>
+		<li id="shangpin" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/Product/product_show?status=2">商品管理</a></li>
+		<!--<li id="spikei" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/User/spikei?status=1">秒杀管理</a></li>-->
+		<li id="dingdan" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/Order/index?status=0">订单管理</a></li>
+		<li id="shopvoucher" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/User/shopvoucher?status=0">店铺优惠券</a></li>
+		<li id="wallet" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href="/Wallet/index">钱包管理</a></li>
+		<!--<li id="geren" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href='/User/auth'>认证管理</a></li>-->
+		<li id="geren2" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href='/User/perfect_profile?status=0'>个人资料</a></li>
+		<li id="message" style="height:50px;border:0"><a style='color:#878787;padding-top:15px;' href='/Vendor/notification?status=1'>消息管理</a></li>
+		<!--<li id="geren2" style="height:40px;border:0"><a style='color:#878787;padding-top:6px;' href=''>帮助中心</a></li>-->
+		<li style="height: 10px;border:0"></li>
+	</ul>
+
+
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var thisURL = window.location.href;
+		var thisID = 'User';
+		var action_name = 'history_cover';
+		thisID = thisID.toUpperCase();
+		if (thisID=='PRODUCT' || action_name=='spikeilist') {
+			//$('#shangpin').html("<li id='lishi' class='classli'><a style='color:#fa595c;' href='/Product/product_show'>分享管理</a></li>");
+			$('#shangpin').html("<li id='shangpin'style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105);' href='/Product/product_show?status=2'>商品管理</a></li>");
+		}else if(action_name=='spikei'){
+			$('#spikei').children().css({"color":"rgb(248,50,105)"});
+		}
+		else if(thisID=='ORDER') {
+			$('#dingdan').html("<li id='dingdan' style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105)' href='/Order/index?status=0'>订单管理</a></li>");
+		}else if(action_name=="shopvoucher"){
+			$('#shopvoucher').children().css({"color":"rgb(248,50,105)"});
+		}
+		else if(thisID=='WALLET') {
+			$('#wallet').html("<li id='wallet' style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105)' href='/Wallet/index'>钱包管理</a></li>");
+		}
+		else if (thisID=='USER'  && (action_name=='perfect_profile' || action_name=='update_perfect' || action_name=='update_pwd')) {
+			$('#geren2').html("<li id='geren2' style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105)' href='/User/perfect_profile?status=0'>个人资料</a></li>");
+		}else if (thisID=='VENDOR'&& (action_name=='index' || action_name=='notification')) {
+			$('#message').html("<li id='message' style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105)' href='/Vendor/index'>消息管理</a></li>");
+		}else if ( action_name=='history_cover' || action_name=='cover'|| action_name == 'reviewed' || action_name == 'cover_add' || action_name == 'reply_detail') {
+			$('#lishi').html("<li id='shangpin' style='padding-top:15px;height:50px;border:0; '><a style='color:rgb(248,50,105)' href='/User/history_cover?status=0'>分享管理</a></li>");
+		}
+		$("#message").click(function(){
+			$(".mesYuan").css("display","none");
+		});
+	});
+</script>
+
+		<div class="admin-content" >
+			<div style="height:90px;">
+			<div  class="b_bootom2">
+				<table class="taboperate" id="taboperate" frame=void >
+					<tr class="">
+						<td class="header_td_2"><a class="font_co_87 border_r td_hover border_line_12" href="/user/history_cover?status=0" style="display:block; padding-right: 10px;" status="0">全部分享(15)</a></td>
+						<td class="header_td_3"><a class="font_co_87 border_r td_hover border_line_12" href="/user/history_cover?status=1" style="display:block; padding:0 10px;" status="1">展示中(15)</a></td>
+						<td class="header_td_1"><a class="font_co_87 td_hover" href="/user/history_cover?status=6" style="display:block; padding-right: 10px;" status="6">已下架(0)</a></td>
+					</tr>
+				</table>
+
+				<input onclick="window.location.href='/User/cover_add'" style="float:right;margin-top:-64px;background:rgb(248, 50, 105);border:0;width:100px;height:40px;font-size:12px;color:white" type="button" value="+添加分享">
+			</div>
+		</div>
+        <div class="mid_div">
+		<div class="dayopea">
+			<form id="submitForm" name="searchFrom" method="get" action="/user/history_cover.html" style="border-spacing:0px;">
+				<div class="" style="float:left;width:320px;">
+					<span class="font_12">分享日期</span>
+					<input readonly="readonly" name="start_date" style="width:100px" type="text" value="" class="inputWdate text_border font_12" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" /><span class="font_12" style="width:20px;">&nbsp;&nbsp;~&nbsp;&nbsp;</span><input style="width:100px" readonly="readonly" type="text" name="end_date" value="" class="endWdate text_border font_12" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+				</div>
+				<div style="width:300px;float:left;text-align:right;padding-right:20px;">
+					<span class="font_12">分享名称</span>&nbsp;&nbsp;<input class="" name="key_word" style="width:200px;font-size:12px;height: 30px;padding-left: 5px;border:1px solid #ecebeb;" value=""  id=""/>
+				</div>
+				<input type="button" style="height:30px;width:100px;color:#878787;background-color:white;margin-left:225px;cursor:pointer;vertical-align: bottom;border:1px solid #ddd;font-size: 12px;" value="搜索" onclick="return document.searchFrom.submit();">
+			</form>
+		</div>
+        </div>
+
+	<div class="mid_divdown">
+                <table class="am-table am-table-bordered am-table-hover cmdtable" border="1" style="border-spacing:0px;">
+			<tr class="tr_h">
+				<td class="font_co_87" style="text-align:center;width:100px;border-right:1px solid #ddd;vertical-align: middle;">视频</td>
+				<td class="font_co_87" style="text-align:center;width:210px;border-right:1px solid #ddd;vertical-align: middle;vertical-align: middle;">分享名称</td>
+				<td class="font_co_87" style="text-align:center;width:106px;border-right:1px solid #ddd;vertical-align: middle;">播放数</td>
+				<td class="font_co_87" style="text-align:center;width:106px;border-right:1px solid #ddd;vertical-align: middle;vertical-align: middle;vertical-align: middle;">评论数</td>
+				<td class="font_co_87" style="text-align:center;width:106px;border-right:1px solid #ddd;vertical-align: middle;vertical-align: middle;">排序</td>
+				<td class="font_co_87" style="text-align:center;width:106px;border-right:1px solid #ddd;vertical-align: middle;">时间</td>
+				<td class="font_co_87" style="text-align:center;width:106px;border-right:1px solid #ddd;vertical-align: middle;">分享状态</td>
+				<td class="font_co_87" style="text-align:center;width:106px;vertical-align: middle;">操作</td>
+			</tr>
+			<tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13272' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/98961eed39b37cf749d32024ed092077_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">吹一股最“强劲”又“洁净”的风</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">774</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">0</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13272,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13272" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13272,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13272,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-22 17:48:25</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13272" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13272,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13272)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13272&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13272)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13271' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/bb5644d56cf13ff6558e077f79480176_750_422.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">吹一股最“强劲”又“洁净”的风</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">875</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">0</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13271,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13271" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13271,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13271,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-22 17:31:05</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13271" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13271,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13271)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13271&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13271)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13269' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/6663d9f92e29e0a1f8d5d036cd4466f8_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">隐藏在Win10里的唯美锁屏壁纸该如何保存？丨经典回顾</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">693</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">0</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13269,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13269" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13269,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13269,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-22 16:53:17</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13269" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13269,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13269)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13269&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13269)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13268' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/3cb7664574492726d5f2d9a03f120b8a_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">完美主义的王自如选择什么路由？</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">866</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">0</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13268,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13268" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13268,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13268,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-22 16:52:01</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13268" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13268,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13268)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13268&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13268)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13261' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/d200001686a891b3ff7b6171982f47e6_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">为了甩掉 AirPods，女主播把男朋友累坏了</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">20278</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">8</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13261,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13261" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13261,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13261,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-21 16:49:30</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13261" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13261,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13261)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13261&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13261)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13253' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/b8b36215e58cc4aa31c9f4bf32151607_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">原来抓娃娃机是这样“骗”钱的！丨经典回顾</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">18528</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">21</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13253,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13253" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13253,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13253,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-21 00:23:13</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13253" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13253,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13253)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13253&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13253)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13238' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/8cece9bca1ec4a5d8ab89db17feba931_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">煲机真的能提升耳机音效吗?丨经典回顾</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">22948</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">23</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13238,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13238" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13238,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13238,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-19 20:33:32</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13238" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13238,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13238)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13238&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13238)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13233' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/cd78511bf7922f74c6cb616cd1f96f5d_750_422.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">王自如抢先上手小米 6  双摄叕曲面到底啥感觉？</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">15761</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">32</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13233,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13233" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13233,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13233,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-19 16:27:22</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13233" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13233,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13233)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13233&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13233)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13229' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/2c03c9914e8b81c869766b1543fafdbe_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">手机进水不可怕，就怕机主没文化！丨经典回顾</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">17274</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">5</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13229,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13229" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13229,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="0" onclick="sort_his_cover(13229,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-18 21:10:00</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13229" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13229,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13229)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13229&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13229)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr><tr class="tr_h2" >
+					<td style="text-align:none;margin:0px;padding:0px;line-height:100px;"><a href='https://m.xiudou.net/normal.html?nid=13213' target='_blank'><img class="imgicon" src="https://images.xiudou.net/Public/images/upload/normal/201704/882ce188347c64f75fe99da2646a0e4b_750_475.jpg"></a></td>
+					<td style="word-wrap:break-word;word-break:break-all;height:100px;padding:0;vertical-align: middle;text-align:center;">机票怎么买最便宜？丨经典回顾</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">15448</td>
+					<td style="height:100px;padding:0;vertical-align: middle;text-align:center;">16</td>
+					<td style="">
+																			<img src="https://images.xiudou.net/Public/images/user_backstage/top.png" _parent_sort="0" onclick="sort_his_cover(13213,this,1)" style="cursor: pointer;" />
+							<div style="margin-top:15px;margin-bottom:2px;">
+							    <input AutoComplete="off" class="text_border user_sort sort_text_his" id="13213" name="user_sort" value="0" />
+							    <input type="hidden" value="1" />
+							    <div style="margin-top:5px;margin-left: 10px;width: 20px;float: right;" class="hide">
+								<img src="https://images.xiudou.net/Public/images/user_backstage/gou.png" style="cursor: pointer;" onclick="sort_his_cover(13213,'',2)" />
+							    </div>
+							</div>
+							<img src="https://images.xiudou.net/Public/images/user_backstage/bottom.png" style="cursor: pointer;" _child_sort="" onclick="sort_his_cover(13213,this,3)" />
+																		<input type="hidden" value="1" />
+					</td>
+
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">2017-04-17 19:18:58</td>
+					<td  style="height:100px;padding:0;vertical-align: middle;text-align:center;">展示中</td>
+					<td class="border-tr-td" style="height:100px;padding:0;vertical-align: middle;text-align:center;">
+
+						<span style="width:106px;display:block;text-align: left;line-height:2.3rem">
+								<a href="/user/cover_add?id=13213" class="td_hover pl10">编辑</a>								<a href='javascript:void(0)' onclick="eliminate(13213,6,this)" class="td_hover pl10">下架</a><br/>																<a onclick="delete_cover(13213)" class="td_hover pl10">删除</a>
+																<a href='/user/reviewed?nor_id=13213&type=1' target='_blank' class="td_hover pl10">查看评论</a></br>
+								<a href='javascript:void(0)' onclick="qr_code(13213)" class="td_hover pl10">查看二维码</a></br>
+							</span>					</td>
+				</tr>                </table>
+	</div>
+	<div class="viciao"><div>  <span class="current">1</span><a class="num" href="/User/history_cover/status/0/p/2.html">2</a> <a class="next" href="/User/history_cover/status/0/p/2.html">>></a> </div><div/>
+	<div id="qr_hide" class="hide">
+		    <div id="qrcode_show" class="qr">
+			    <a class="qr_close" title="关闭" data-target="qr_hide" onclick="$('#qr_hide').css({ display:'none' });$(this).nextAll().remove();"></a>
+		    </div>
+	</div>
+ </body>
+<script type="text/javascript">
+	//查看二维码
+	function qr_code(id){
+	    $('#qr_hide').css('display', 'block');
+	    $('#qrcode_show').qrcode({
+
+		render: "table",
+
+		text: "https://m.xiudou.net/normal.html?nid=" +id
+
+	      });
+	}
+
+	function delete_cover(id){
+	    if(confirm('确实要删除吗')){
+
+			X16.util.X16Ajax(X16.util.requestUrl('1.8', 'User/delete_normal_video'), {
+				normal_video_id:id
+			},function(e){
+				if(e.code == 0){
+					window.location.href="/user/history_cover?status=0";
+				}else{
+					alert(e.message);
+				}
+			});
+		}
+	}
+	function eliminate(id,status,obj){
+		var con = obj.text;
+
+		var xiajia_id=id;
+		if(confirm('确实要'+con+'吗')){
+
+			$.post("/user/normal_status",{"id":xiajia_id,'status':status},function(data,status){
+				if(status=="success")
+				{
+				    window.location.href="/user/history_cover?status=0";
+				}
+			})
+
+		}
+	}
+	if (sessionStorage.num_msg) {
+		<!-- $('title').html('未读消息('+sessionStorage.num_msg+') 分享视频'); -->
+	}
+
+        $('[oid]').click(function(){
+		var oid = $(this).attr('oid');
+		$.get('/user/set_cover?id='+oid, function(r){
+			r = $.parseJSON(r);
+			if(parseInt(r.code) == 0)
+			{
+				alert('成功');
+				location.reload();
+			}else{
+				alert(r.message);
+			}
+		})
+        });
+
+	$('[did]').click(function(){
+		var did = $(this).attr('did');
+		var cover = 0;
+		if($(this).attr('cover'))
+		{
+			if(!confirm('删除当前分享后,系统会为你指定最新的封面,是否继续?')){
+				return false;
+			}
+			cover = 1;
+		}
+		$.get('/user/del_normal?id='+did+'&cover='+cover, function(r){
+			r = $.parseJSON(r);
+			if(parseInt(r.code) == 0)
+			{
+				alert('成功');
+				location.reload();
+			}else{
+				alert(r.message);
+			}
+		})
+	});
+
+	$(document).on('click', '.user_sort', function() {
+		$(this).next().next().attr('class','mr_20');
+		$(this).attr('class','text_border user_sort sort_text_his');
+	});
+
+	function sort_his_cover(id,_this,type){
+		var user_sort = 0;
+		if(type == 1){
+			user_sort = parseInt($(_this).attr('_parent_sort')) + 1;
+		}else if(type == 3){
+			user_sort = $(_this).attr('_child_sort')-1;
+		}else{
+			user_sort = $('#'+id).val();
+		}
+		if(user_sort >= 0){
+			$.ajax({
+				url: "/user/normal_sort_edit",
+				type: "POST",
+				dataType: 'json',
+				data: {
+					"user_sort":user_sort,
+					"id":id
+				},
+				success: function(e){
+					if(e.code == 0){
+					    window.location.reload();
+					}else{
+					  alert(e.message);
+					}
+				}
+			});
+		}
+	}
+	$(document).on('blur', '.user_sort', function() {
+
+		var user_sort = $(this).val();
+
+		var id = $(this).attr('id');
+		if(user_sort >= 0){
+			$.ajax({
+				url: "/user/normal_sort_edit",
+				type: "POST",
+				dataType: 'json',
+				data: {
+				    "user_sort":user_sort,
+				    "id":id
+				},
+				success: function(e){
+					if(e.code == 0){
+						window.location.reload();
+					}else{
+						alert(e.message);
+					}
+				}
+			});
+		}
+	});
+</script>
+<script type="text/javascript" src="https://images.xiudou.net/Public/datePicker/WdatePicker.js?v=2.1"></script>
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+	var hm = document.createElement("script");
+	hm.src = "//hm.baidu.com/hm.js?7ccf7969456c912fd7c411541b68d10d";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

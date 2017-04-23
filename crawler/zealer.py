@@ -4,7 +4,7 @@ import time
 import json
 import my_common
 import send_email
-# import db
+#import db
 
 
 import youku
@@ -31,6 +31,7 @@ import ifeng
 import btime
 import shxw
 import miaopai
+import xiudou
 
 
 def get_data(channel):
@@ -135,7 +136,8 @@ def main():
             '凤凰网',
             '北京时间',
             '搜狐新闻',
-            '秒拍'
+            '秒拍',
+            '秀兜'
         ]
 
     body_text = ''
@@ -150,7 +152,8 @@ def main():
 
         except Exception as e:
             print 'channel: %s   error: %s' % (channel, e)
-            body_text += 'channel: %s   error: %s' % (channel, e)  + '</br>'
+            if str(e).find('timed out') == -1 and str(e) != '':
+                body_text += 'channel: %s   error: %s' % (channel, e)  + '</br>'
 
     send_email.main(body_text)
     # return result_list
