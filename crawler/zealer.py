@@ -4,7 +4,7 @@ import time
 import json
 import my_common
 import send_email
-#import db
+import db
 
 
 import youku
@@ -150,8 +150,8 @@ def main():
             result_list = get_data(channel)
             print result_list, '\n', len(result_list)
 
-            # for result_dict in result_list:
-            #     db.insert_db(result_dict)
+            for result_dict in result_list:
+                db.insert_db(result_dict)
 
         except Exception as e:
             print 'channel: %s   error: %s' % (channel, e)
