@@ -108,6 +108,9 @@ def get_data(channel):
     if channel == '秒拍':
         result_list = miaopai.main()
 
+    if channel == '秀兜':
+        result_list = xiudou.main()
+
     return result_list
 
 
