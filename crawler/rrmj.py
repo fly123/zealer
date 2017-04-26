@@ -11,23 +11,13 @@ cookie = 'JSESSIONID=79518463F23EBE56202ABF183290D4EC'
 
 
 def get_cookie(url, data = ''):
-    request = urllib2.Request(url)
-    request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36')
-    # request.add_header('Content-Type', 'application/x-www-form-urlencoded')
-
-    result = ''
-    if data == '':
-        response = urllib2.urlopen(request)
-        print dir(response)
-        result = response.read()
-    else:
-        response = urllib2.urlopen(request, data)
-        # print dir(response)
-        # print dir(response.headers)
-        # print response.headers.getheaders('Location')
-        # print response.getcode()
-        response_url = response.geturl()
-        result = 'JSESSIONID=' + response_url.split('=')[1]
+    response = my_common.get_response(url, data)
+    # print dir(response)
+    # print dir(response.headers)
+    # print response.headers.getheaders('Location')
+    # print response.getcode()
+    response_url = response.geturl()
+    result = 'JSESSIONID=' + response_url.split('=')[1]
 
     return result
 

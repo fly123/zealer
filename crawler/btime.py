@@ -4,8 +4,21 @@ import time
 import json
 import my_common
 import HTMLParser
+import urllib2
+
 
 cookie = '__guid=ed795593-d528-4b7f-b417-5dcdf2b6bd55; __gid=196757375.164997743.1490599080768.1490610374649.7; usid=9310b07c4045791fd808f73448759478; lf=1'
+
+
+def get_cookie(url, data = ''):
+    response = my_common.get_response(url, data)
+    print response.headers.getheaders('Set-Cookie')
+    res_cookie = response.headers.getheaders('Set-Cookie')
+    # print response.getcode()
+    # response_url = response.geturl()
+    result = res_cookie[0].split(';')[0]
+
+    return result
 
 
 def get_html(url, post_data):
@@ -49,6 +62,11 @@ def get_data(url, post_data):
 
 def main():
     result_list = []
+    global cookie
+    post_data = 'user_name=13011873006&passwd=ndN9l2iUUK%2FnRQeeOqpC%2FcSCEwza%2Fbg9KeB7DhX4c%2FaBPXD42lQT6GbgKkLLWXbKtbp7gjDWHHWtMuPERBLGgzz4pkQxmMxUVeF5eIQ5l6ABW71ax1ARfKuqun0%2FP5W3gpQVmOg114fz1SA27BN4V5fuwjrExbiM7miFClNVNxQ%3D&remember=on&timestamp=1493215810597&jump=http%3A%2F%2Fmp.btime.com%2Findex.php%3Fro%3Dlogin%26ra%3Dindex'
+    cookie = get_cookie('http://user.btime.com/loging?callback=jQuery110204716364102386039_1493215810459', post_data)
+    print cookie
+    time.sleep(1)
     post_data = 'updateTime=1491704960&type=0&page=1&limit=30&keyWord_title='
     url = 'http://mp.btime.com/index.php?ro=Manuscript&ra=getNewListData'
     result_list = get_data(url, post_data)

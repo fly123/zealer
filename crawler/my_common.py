@@ -20,11 +20,10 @@ def http_request(url, cookie = '', data = ''):
     return result
 
 
-def get_cookie(url, data = ''):
+def get_response(url, data = ''):
     request = urllib2.Request(url)
     request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36')
-    # request.add_header('Host', 'ucenter.rrmj.tv')
-    request.add_header('Content-Type', 'application/x-www-form-urlencoded')
+    # request.add_header('Content-Type', 'application/x-www-form-urlencoded')
 
     result = ''
     if data == '':
@@ -33,13 +32,11 @@ def get_cookie(url, data = ''):
         result = response.read()
     else:
         response = urllib2.urlopen(request, data)
-        print dir(response)
-        print dir(response.headers)
-        print response.headers.getheaders('Location')
-        print response.getcode()
-        print response.geturl()
-        print response.info()
-        result = response.read()
+        # print dir(response)
+        # print dir(response.headers)
+        #print response.headers.getheaders('Set-Cookie')
+        #res_cookie = response.headers.getheaders('Set-Cookie')
+        result = response
 
     return result
 
