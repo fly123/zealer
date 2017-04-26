@@ -76,5 +76,6 @@ def match(html, st_str, end_str):
 if __name__ == '__main__':
     print get_before_time(2)
     print timestamp_to_str(1487595085411 / 1000)
+    print int(time.time() * 1000)
     #print get_cookie('http://ucenter.rrmj.tv/page/login', 'username=13389622309&password=2876c246e1faf92246544a7b9897e3fd')
     pass

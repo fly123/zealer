@@ -29,7 +29,7 @@ def parse_html(html):
         result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['url']
-        result_dict['playCount'] = info_dict['daily_display_pv']
+        result_dict['playCount'] = info_dict['total_display_pv']
         result_dict['channel'] = '天天快报'
         result_dict['uploadTime'] = info_dict['uploadtime'][: len('2017-03-25')]
 
@@ -49,7 +49,13 @@ def get_data(url):
 
 def main():
     result_list = []
-    result_list = get_data('https://om.qq.com/VideoData/MediaVideoList?fields=2%7C3&source=0&page=1&limit=60&relogin=1')
+
+    #result_list = get_data('https://om.qq.com/VideoData/MediaVideoList?fields=2%7C3&source=0&page=1&limit=60&relogin=1')
+
+    for i in range(1, 3):
+        url = 'https://om.qq.com/VideoData/MediaVideoList?fields=2%7C3&source=0&page=' + str(i) + '&limit=30&relogin=1'
+        result_list += get_data(url)
+        time.sleep(1)
 
     print result_list, '\n', len(result_list)
     return result_list

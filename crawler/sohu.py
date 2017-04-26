@@ -4,6 +4,7 @@ import time
 import json
 import my_common
 
+#timestamp = str(int(time.time() * 1000))
 
 def get_html(url):
     # f = open('sohu.html')
@@ -98,7 +99,9 @@ def get_play_count_dict(url):
 
 def main():
     result_list = []
-    result_list = get_data('http://my.tv.sohu.com/user/wm/ta/v.do?callback=jQuery1720737871223479664_1490263943803&uid=175880212&pg=2&size=50&sortType=2&_=1490263943890')
+    url = 'http://my.tv.sohu.com/user/wm/ta/v.do?callback=jQuery1720737871223479664_1490263943803&uid=175880212&pg=1&size=50&sortType=2'
+    print url
+    result_list = get_data(url)
 
     print result_list, '\n', len(result_list)
     return result_list
