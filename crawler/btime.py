@@ -42,7 +42,7 @@ def parse_html(html):
         result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['href_btime']
-        result_dict['playCount'] = info_dict['readNum']
+        result_dict['playCount'] = info_dict['sumPv']
         result_dict['channel'] = '北京时间'
         result_dict['uploadTime'] = info_dict['mtime'][: len('2017-03-25')]
 
