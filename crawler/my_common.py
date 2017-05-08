@@ -27,11 +27,11 @@ def get_response(url, data = ''):
 
     result = ''
     if data == '':
-        response = urllib2.urlopen(request)
+        response = urllib2.urlopen(request, data=None, timeout=10)
         print dir(response)
         result = response.read()
     else:
-        response = urllib2.urlopen(request, data)
+        response = urllib2.urlopen(request, data, timeout=10)
         # print dir(response)
         # print dir(response.headers)
         #print response.headers.getheaders('Set-Cookie')

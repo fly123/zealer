@@ -30,7 +30,7 @@ def parse_html(html):
         result_dict = {}
         result_dict['title'] = info_dict['title']
         result_dict['link'] = info_dict['pcUrl']
-        result_dict['playCount'] = info_dict['playNum']
+        result_dict['playCount'] = info_dict['pv']
         result_dict['channel'] = '凤凰网'
         result_dict['uploadTime'] = info_dict['submitAuditTime'][: len('2017-03-25')]
 
