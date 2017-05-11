@@ -6,7 +6,7 @@ import my_common
 import HTMLParser
 
 #login_url: http://fhh.ifeng.com/index
-cookie = 'vjuids=26d2fad17.14ddc49b422.0.98c409bd; userid=1434023046022_9aa5pv8752; vjlast=1433919927.1475907084.21; prov=cn020; city=0755; weather_city=gd_sz; region_ip=113.89.238.x; region_ver=1.2; if_mid=6CcQd2; sid=69C982104637985987B8C6E07F86D833user75022317; IF_TIME=1492864755859; IF_USER=media%40zealer.com; IF_REAL=0'
+cookie = 'sid=F47837BD87A29DD7EAD51CE97048168Duser75022317; IF_TIME=1494225871013; IF_USER=media%40zealer.com; IF_REAL=0'
 
 
 def get_html(url):
