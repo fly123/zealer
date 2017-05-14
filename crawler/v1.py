@@ -6,7 +6,7 @@ import my_common
 import HTMLParser
 
 
-cookie = 'yu=9014230850742; UM_distinctid=15b13d1b88ad8-0941a4952567b7-36607f03-1fa400-15b13d1b88b69b; helloService_loginok=1; helloService="1QV@2x7BQN18_yxFFXVha1qPoFn@qS1sa2nuk7YWbLfe8XdlH@_o9NEgmNZfgOjnCicgI2C8YUClh5a2kV5axGTesWsjYf839wBl0_5Pfyqz5eoJ06SuYAn4MQEIoHMa1qC7JlKyhFnO_9V5i5Vq_z0Y5qCm1BrDn11r3QBnqxlnzCkZC85OGSY45Sxc2r8r"; helloService_login=2; helloService_userface="http://p01.v1.cn/group2/M00/10/62/ChQB0FeIYyeAL5kdAAANUCuagAw079.png"; helloService_failuretime=-1; JSESSIONID=7740AEA0174913F2F8658E08E169BE81; Hm_lvt_cb44eb450c53c91a1cc1d2511f5919b3=1490686406,1490686406,1490686408,1490686408; Hm_lpvt_cb44eb450c53c91a1cc1d2511f5919b3=1490686408; helloService_username=ZEALER'
+cookie = 'yu=3337306387256; UM_distinctid=15bfd9e1a922e03-03f229797-6b12157e-1fa400-15bfd9e1aa25e66; helloService_loginok=1; Hm_lvt_cb44eb450c53c91a1cc1d2511f5919b3=1494608649; Hm_lpvt_cb44eb450c53c91a1cc1d2511f5919b3=1494608700; helloService="1QV@2x7BQN0@Jpj5x1mBotA3l84CTZld4zuMKVDwCdNLekD83OxORi8DVhTyOD6bVFLuNNwdykmlwesIhWxJf6R957mYyLVFrXz7RN@bHp6Zbrbb7GnFms8zDLOgxA1x@kDy3T8BA0R3d3YGd@VjOruaXS555DeznEGU3l8Yqnj78_LsRMwF1gGo0A7JMRSN"; helloService_username=ZEALER; helloService_login=2; helloService_userface="http://p01.v1.cn/group2/M00/10/62/ChQB0FeIYyeAL5kdAAANUCuagAw079.png"; helloService_failuretime=-1'
 
 
 def get_html(url):
@@ -81,7 +81,9 @@ def get_data(url):
         result_dict['link'] = info_dict['url']
         result_dict['uploadTime'] = info_dict['uploadTime']
         result_dict['channel'] = '第一视频'
-        result_dict['playCount'] = play_count_dict[str(info_dict['vid'])]
+        result_dict['playCount'] = '0'
+        if play_count_dict.has_key(str(info_dict['vid'])):
+            result_dict['playCount'] = play_count_dict[str(info_dict['vid'])]
 
         result_list.append(result_dict)
 
@@ -102,7 +104,9 @@ def parse_play_count_html(html):
     result_dict = {}
     data = html
 
-    # print data
+    print '----: ' + data
+    if data.find('body') == -1:
+        return result_dict
     data = data[1 : -1]
     data = data.replace('\\"', '\"')
     play_count_list = json.loads(data)['body']['data']
